@@ -1,0 +1,16 @@
+# internal / tooling
+.omc/
+node_modules/
+RESUME.md
+
+# publish only the web-optimized images that the site actually uses
+does/*
+!does/profile.jpg
+!does/wify.jpg
+!does/wro.jpg
+!does/umuljip.jpg
+!does/acidrain.jpg
+!does/aw_wro.jpg
+!does/aw_umuljip.jpg
+!does/aw_piuda.jpg
+!does/aw_gimpo.jpg

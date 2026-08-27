@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dayeon Lee — Software Developer</title>
+  <meta name="description" content="Dayeon Lee — Software Developer across embedded systems, edge AI, robotics, and web." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%2312110f'/%3E%3Ctext%20x='30'%20y='46'%20font-family='Arial,Helvetica,sans-serif'%20font-size='42'%20font-weight='800'%20fill='%23f4f1ea'%20text-anchor='middle'%3ED%3C/text%3E%3Ccircle%20cx='49'%20cy='18'%20r='7'%20fill='%23f5361f'/%3E%3C/svg%3E">
+  <meta property="og:title" content="Dayeon Lee — Software Developer">
+  <meta property="og:description" content="Embedded · Edge AI · Robotics · Web — portfolio & projects.">
+  <meta name="theme-color" content="#12110f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===================== TOKENS ===================== */
+    :root {
+      --paper:  #f4f1ea;   /* warm off-white page */
+      --card:   #ffffff;
+      --ink:    #12110f;   /* near-black */
+      --ink-2:  #3a3833;
+      --muted:  #6f6b62;
+      --muted-2:#9a958a;
+      --red:    #f5361f;   /* vermilion accent */
+      --red-2:  #d92c17;
+      --line:   #e0dbd0;
+      --line-2: #eceal;
+      --line-2: #ece7dc;
+      --dark:   #131210;   /* dark cards / footer */
+      --dark-2: #1c1a17;
+      --max:    1200px;
+      --nav-h:  72px;
+      --display: "Anton", "Archivo", Impact, system-ui, sans-serif;
+      --head:    "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --sans:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --mono:    ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: var(--sans); font-size: 17px; line-height: 1.62;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--red); color: #fff; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 34px; position: relative; }
+
+    /* section label with red dot */
+    .kicker { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 10px; }
+    .kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); }
+
+    /* headings/titles: no select or drag (body text stays selectable) */
+    .brand, .foot-brand, .foot-col h5, .kicker, .sec-title,
+    .hero-label, .hero-display, .about-lead, .sign, .stat-big, .stat-sub,
+    .service h4, .skills-grid .lead, .skill-row .cat,
+    .work-card h3, .work-card .sub, .award .rk, .award .nfo h4,
+    .edu h3, .exp .exp-item h4, .cert .c, .cta-sec h2 {
+      user-select: none; -webkit-user-select: none; -webkit-user-drag: none;
+    }
+
+    /* ===================== NAV ===================== */
+    header.nav { position: sticky; top: 0; z-index: 60; height: var(--nav-h); background: rgba(244,241,234,0.82); backdrop-filter: saturate(140%) blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; }
+    .brand { font-family: var(--head); font-weight: 800; font-size: 17px; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 8px; }
+    .brand i { width: 8px; height: 8px; border-radius: 50%; background: var(--red); display: inline-block; }
+    nav.links { display: flex; gap: 30px; }
+    nav.links a { font-family: var(--mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); transition: color .18s; position: relative; }
+    nav.links a::after { content:""; position:absolute; left:0; right:100%; bottom:-6px; height:2px; background: var(--red); transition: right .22s ease; }
+    nav.links a:hover, nav.links a.active { color: var(--ink); }
+    nav.links a:hover::after, nav.links a.active::after { right: 0; }
+    .talk { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 11px 18px; border-radius: 6px; transition: background .18s, transform .18s; }
+    .talk:hover { background: var(--red); transform: translateY(-1px); }
+    .menu-btn { display:none; background:none; border:0; color:var(--ink); cursor:pointer; padding:8px; }
+    .menu-btn svg { width:24px; height:24px; }
+
+    /* ===================== SECTION SHELL ===================== */
+    section { padding: 104px 0 24px; scroll-margin-top: var(--nav-h); }
+    .sec-head { margin-bottom: 44px; }
+    .sec-head .kicker { margin-bottom: 18px; }
+    .sec-title { font-family: var(--head); font-weight: 900; font-size: clamp(28px, 4.6vw, 46px); line-height: 1.0; letter-spacing: -0.02em; margin: 0; text-transform: uppercase; }
+
+    /* ===================== HERO ===================== */
+    .hero { padding: 46px 0 40px; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 40px; align-items: center; }
+    .hero-label { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+    .hero-label b { color: var(--ink); font-weight: 700; }
+    .hero-display { font-family: var(--display); font-weight: 400; font-size: clamp(64px, 13.5vw, 168px); line-height: 0.84; letter-spacing: 0.005em; text-transform: uppercase; margin: 0; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; }
+    .hero-display .line2 { display: inline-block; position: relative; }
+    .scribble { position: absolute; left: -2%; bottom: -14%; width: 104%; height: auto; pointer-events: none; }
+    .hero-desc { max-width: 430px; color: var(--ink-2); font-size: 18px; margin: 30px 0 0; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+    .btn { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.05em; text-transform: uppercase; padding: 14px 22px; border: 1.5px solid var(--ink); border-radius: 7px; color: var(--ink); background: transparent; cursor: pointer; display:inline-flex; align-items:center; gap:9px; transition: background .18s, color .18s, border-color .18s, transform .18s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.solid { background: var(--ink); color: #fff; }
+    .btn.solid:hover { background: var(--red); border-color: var(--red); }
+    .btn.ghost:hover { border-color: var(--red); color: var(--red); }
+
+    /* portrait with red block */
+    .portrait-wrap { display:flex; justify-content:center; position: relative; }
+    .portrait { position: relative; width: clamp(240px, 32vw, 380px); aspect-ratio: 4/5; }
+    .portrait .block { position: absolute; top: -18px; right: -18px; width: 100%; height: 100%; background: var(--red); border-radius: 3px; z-index: 0; }
+    .portrait .frame { position: absolute; inset: 0; z-index: 1; overflow: hidden; background: #111; border-radius: 3px; }
+    .portrait .frame img { position: relative; z-index: 2; width:100%; height:100%; object-fit: cover; display:block; filter: grayscale(100%) contrast(1.05); }
+    .portrait .ph { position:absolute; inset:0; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; color: #7d7a73; background: linear-gradient(160deg,#1a1a1c,#111); }
+    .portrait .ph .ico { font-size: 42px; opacity:.55; }
+    .portrait .ph b { font-family: var(--mono); font-size: 12px; color: #cfccc4; letter-spacing:.06em; }
+    .portrait .ph span { font-family: var(--mono); font-size: 11px; color: #7d7a73; }
+    .hero-tag { position:absolute; top: 4px; right: -6px; text-align: right; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+    .hero-tag b { color: var(--ink); font-weight: 700; }
+    .vtext { position:absolute; right: -34px; top: 50%; transform: translateY(-50%); writing-mode: vertical-rl; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted-2); }
+    .vtext::before { content:""; display:block; height: 22px; width:1px; background: var(--red); margin: 0 auto 10px; }
+
+    /* ===================== ABOUT ===================== */
+    .about-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: start; }
+    .about-lead { font-family: var(--head); font-weight: 800; font-size: clamp(22px, 3vw, 30px); line-height: 1.14; letter-spacing: -0.015em; text-transform: uppercase; margin: 22px 0 22px; }
+    .about-lead em { font-style: normal; color: var(--red); }
+    .about-grid p { color: var(--muted); margin: 0 0 15px; font-size: 17px; max-width: 54ch; }
+    .about-grid p b { color: var(--ink); font-weight: 600; }
+    .sign { font-family: var(--head); font-weight: 800; font-size: 22px; margin-top: 22px; }
+    .sign span { display:block; font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
+
+    .stat-box { border: 1px solid var(--line); border-radius: 12px; padding: 30px; background: var(--card); }
+    .stat-big { font-family: var(--display); font-size: clamp(64px, 9vw, 104px); line-height: 0.9; color: var(--ink); }
+    .stat-big em { font-style: normal; color: var(--red); }
+    .stat-sub { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin: 4px 0 24px; }
+    .stat-rows { display: grid; gap: 0; }
+    .stat-rows .r { display:flex; justify-content: space-between; align-items:center; padding: 14px 0; border-top: 1px solid var(--line); font-size: 15px; }
+    .stat-rows .r .n { font-family: var(--head); font-weight: 800; font-size: 20px; }
+    .stat-rows .r .t { font-family: var(--mono); font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); text-align: right; }
+
+    /* ===================== SERVICES / WHAT I DO ===================== */
+    .services { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .service { padding: 38px 26px 42px 26px; border-right: 1px solid var(--line); }
+    .service:first-child { padding-left: 0; }
+    .service:last-child { border-right: 0; padding-right: 0; }
+    .service .ic { width: 34px; height: 34px; color: var(--red); margin-bottom: 18px; }
+    .service h4 { font-family: var(--head); font-weight: 800; font-size: 16.5px; text-transform: uppercase; letter-spacing: -0.01em; margin: 0 0 10px; }
+    .service p { color: var(--muted); font-size: 15px; margin: 0; }
+
+    /* ===================== SKILLS ===================== */
+    .skills-grid { display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 40px; align-items: start; }
+    .skills-grid .lead { font-family: var(--head); font-weight: 900; font-size: clamp(26px, 3.4vw, 38px); line-height: 1.02; text-transform: uppercase; letter-spacing: -0.02em; }
+    .skills-grid .lead em { font-style: normal; color: var(--red); }
+    .skill-rows { display: grid; gap: 0; }
+    .skill-row { display: grid; grid-template-columns: 190px 1fr; gap: 20px; align-items: baseline; padding: 20px 0; border-top: 1px solid var(--line); }
+    .skill-row:last-child { border-bottom: 1px solid var(--line); }
+    .skill-row .cat { font-family: var(--head); font-weight: 800; font-size: 18px; text-transform: uppercase; }
+    .skill-row .items { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-row .items span { font-family: var(--mono); font-size: 14px; color: var(--ink-2); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; background: var(--card); }
+
+    /* ===================== WORK ===================== */
+    .work-head { display:flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .work-card { background: var(--dark); color: #f4f1ea; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; min-height: 300px; position: relative; transition: transform .22s; }
+    .work-card:hover { transform: translateY(-4px); }
+    .work-card .top { flex: 1; padding: 26px 26px 0; position: relative; overflow: hidden; }
+    /* optional project photo: add <img class="bg" src="..."> inside .top → dark overlay auto-applies */
+    .work-card .top .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: grayscale(15%); }
+    .work-card .top:has(.bg)::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(19,18,16,0.26) 0%, rgba(19,18,16,0.52) 46%, rgba(19,18,16,0.88) 100%); }
+    .work-card .top:has(.bg) .flow { display: none; }
+    .work-card .top:has(.bg) { min-height: 210px; }
+    .work-card .top > .flow { position: relative; z-index: 2; }
+    .work-card .tag { position:absolute; top: 22px; right: 22px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--red); border: 1px solid #333; border-radius: 20px; padding: 5px 11px; z-index: 2; }
+    .work-card .flow { font-family: var(--mono); font-size: 13.5px; color: #8a867d; line-height: 1.9; margin-top: 44px; }
+    .work-card .flow .big { font-size: 30px; opacity: .7; }
+    .work-card .bottom { padding: 22px 26px 26px; border-top: 1px solid #262420; margin-top: 20px; }
+    .work-card h3 { font-family: var(--head); font-weight: 900; font-size: 26px; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; }
+    .work-card .sub { font-family: var(--mono); font-size: 13px; color: var(--red); margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
+    .work-card .desc { color: #b8b3a8; font-size: 15.5px; margin: 14px 0 0; line-height: 1.55; }
+    .work-card .desc .rr { display: block; margin-top: 9px; color: #cfccc4; }
+    .work-card .desc .rr b { color: var(--red); font-weight: 700; }
+    .work-card .stack { display:flex; flex-wrap:wrap; gap: 7px; margin-top: 16px; }
+    .work-card .stack span { font-family: var(--mono); font-size: 12.5px; color: #d8d3c8; border: 1px solid #2e2b26; border-radius: 5px; padding: 4px 9px; }
+    .work-card .links { display:flex; gap: 16px; margin-top: 18px; }
+    .work-card .links a { font-family: var(--mono); font-size: 13.5px; color: #cfccc4; display:inline-flex; align-items:center; gap:6px; transition: color .18s; }
+    .work-card .links a:hover { color: var(--red); }
+    .work-card .links a svg { width: 14px; height: 14px; }
+
+    .more { margin-top: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); overflow:hidden; }
+    .more .mh { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 16px 22px; border-bottom: 1px solid var(--line); }
+    .more a.mr { display:grid; grid-template-columns: 1fr auto auto; gap: 18px; align-items:center; padding: 16px 22px; border-bottom: 1px solid var(--line-2); transition: background .16s; }
+    .more a.mr:last-child { border-bottom: 0; }
+    .more a.mr:hover { background: #faf8f3; }
+    .more a.mr .nm { font-family: var(--head); font-weight: 700; font-size: 15px; }
+    .more a.mr .lg { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+    .more a.mr .go { font-family: var(--mono); font-size: 13px; color: var(--red); }
+
+    /* ===================== AWARDS ===================== */
+    .awards { border-top: 2px solid var(--ink); }
+    .award { display: grid; grid-template-columns: 140px 1fr auto; gap: 26px; align-items: center; padding: 26px 0; border-bottom: 1px solid var(--line); transition: padding-left .2s; }
+    .award:hover { padding-left: 10px; }
+    .award .rk { font-family: var(--display); font-size: 30px; color: var(--red); line-height: 1; }
+    .award .nfo h4 { font-family: var(--head); font-weight: 800; font-size: 22px; text-transform: uppercase; margin: 0; }
+    .award .nfo .m { color: var(--muted); font-size: 15.5px; margin-top: 4px; }
+    .award .yr { font-family: var(--mono); font-size: 14px; color: var(--muted-2); }
+    .award-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; }
+    .award-gallery figure { margin: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--dark); }
+    .award-gallery img { width: 100%; height: 155px; object-fit: cover; display: block; filter: grayscale(35%) contrast(1.02); transition: filter .25s, transform .25s; }
+    .award-gallery figure:hover img { filter: none; transform: scale(1.04); }
+    .award-gallery figcaption { font-family: var(--mono); font-size: 12.5px; letter-spacing: .03em; color: var(--muted); padding: 11px 14px; border-top: 1px solid var(--line); }
+    .award-gallery figcaption b { color: var(--red); font-weight: 700; }
+
+    /* ===================== EDUCATION ===================== */
+    .edu-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .edu, .exp { border: 1px solid var(--line); border-radius: 12px; padding: 28px 30px; background: var(--card); }
+    .edu h3 { font-family: var(--head); font-weight: 900; font-size: 21px; text-transform: uppercase; margin: 12px 0 0; letter-spacing: -0.01em; }
+    .edu .m { font-family: var(--mono); font-size: 13px; color: var(--red); margin-top: 8px; text-transform: uppercase; letter-spacing: .04em; }
+    .edu p { color: var(--muted); font-size: 16.5px; margin: 14px 0 0; }
+    .exp .exp-item { padding: 14px 0; border-top: 1px solid var(--line-2); }
+    .exp .exp-item:first-of-type { border-top: 0; }
+    .exp .exp-item h4 { font-family: var(--head); font-weight: 700; font-size: 16.5px; margin: 0; }
+    .exp .exp-item .m { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: .04em; }
+    .act { border: 1px solid var(--line); border-radius: 12px; padding: 28px 30px; background: var(--card); margin-top: 18px; }
+    .act-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 44px; margin-top: 18px; }
+    .act .exp-item { padding: 10px 0 10px 17px; border-top: 0; position: relative; }
+    .act .exp-item::before { content: ""; position: absolute; left: 0; top: 15px; width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+    .act .exp-item h4 { font-family: var(--head); font-weight: 700; font-size: 16.5px; margin: 0; }
+    .act .exp-item .m { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: .04em; }
+    .cert { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 18px; padding: 20px 30px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+    .cert .kicker { margin: 0; }
+    .cert .c { font-family: var(--head); font-weight: 700; font-size: 16.5px; }
+    .cert .c span { font-family: var(--mono); font-weight: 400; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-left: 8px; }
+    @media (max-width: 680px) { .act-list { grid-template-columns: 1fr; } }
+
+    /* ===================== CTA ===================== */
+    .cta-sec { text-align: center; padding: 120px 0 90px; }
+    .cta-sec h2 { font-family: var(--display); font-size: clamp(48px, 10vw, 128px); line-height: 0.98; text-transform: uppercase; margin: 0; user-select: none; -webkit-user-select: none; -webkit-user-drag: none; }
+    .cta-sec h2 em { font-style: normal; color: var(--red); }
+    .cta-sec p { color: var(--muted); max-width: 480px; margin: 26px auto 0; font-size: 18px; }
+    .cta-sec .btns { display:inline-flex; gap: 12px; margin-top: 34px; flex-wrap: wrap; justify-content: center; }
+
+    /* ===================== FOOTER ===================== */
+    footer { background: var(--dark); color: #d8d3c8; }
+    .foot-grid { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 34px; padding: 60px 0 30px; }
+    .foot-brand { font-family: var(--head); font-weight: 900; font-size: 24px; text-transform: uppercase; color: #fff; display:inline-flex; align-items:center; gap: 8px; }
+    .foot-brand i { width: 9px; height: 9px; border-radius:50%; background: var(--red); }
+    .foot-brand + p { color: #8a867d; font-size: 14px; margin: 14px 0 0; max-width: 34ch; }
+    .foot-col h5 { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #8a867d; margin: 0 0 14px; }
+    .foot-col a, .foot-col span { display:block; color: #d8d3c8; font-size: 15px; padding: 6px 0; transition: color .16s; }
+    .foot-col a:hover { color: var(--red); }
+    .foot-bottom { border-top: 1px solid #262420; padding: 20px 0; display:flex; justify-content: space-between; align-items:center; gap: 16px; flex-wrap: wrap; }
+    .foot-bottom p { font-family: var(--mono); font-size: 11.5px; color: #6f6b62; margin: 0; }
+    .socials { display:flex; gap: 14px; }
+    .socials a { color: #d8d3c8; transition: color .16s; } .socials a:hover { color: var(--red); }
+    .socials svg { width: 18px; height: 18px; }
+
+    /* reveal */
+    .reveal { opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce) { html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+      .portrait-wrap { justify-content: flex-start; } .vtext { display:none; }
+      .about-grid { grid-template-columns: 1fr; gap: 34px; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .service { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; }
+      .skills-grid { grid-template-columns: 1fr; gap: 24px; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 680px) {
+      .wrap { padding: 0 20px; }
+      nav.links { display:none; } .talk { display:none; }
+      nav.links.open { display:flex; flex-direction:column; gap:0; position:absolute; top:var(--nav-h); left:0; right:0; background:var(--paper); border-bottom:1px solid var(--line); padding: 6px 20px 14px; }
+      nav.links.open a { padding: 13px 0; border-bottom:1px solid var(--line-2); }
+      .menu-btn { display:inline-flex; }
+      section { padding: 74px 0 16px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr; }
+      .skill-row { grid-template-columns: 1fr; gap: 10px; }
+      .award { grid-template-columns: 70px 1fr; } .award .yr { display:none; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .more a.mr { grid-template-columns: 1fr auto; } .more a.mr .lg { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#home" class="brand">Dayeon Lee <i></i></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">What I Do</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="https://wa.me/8210515208222?text=Hi%20Dayeon%2C%20I%20saw%20your%20portfolio%20%E2%80%94" target="_blank" rel="noopener" class="talk">Let's Talk ↗</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-label"><b>Dayeon Lee</b> — Software Developer</div>
+          <h1 class="hero-display">
+            Software<br>
+            <span class="line2">Developer
+              <svg class="scribble" viewBox="0 0 320 34" fill="none" aria-hidden="true">
+                <path d="M4 22 C 60 6, 120 30, 176 14 C 232 0, 280 26, 316 12" stroke="#f5361f" stroke-width="8" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </h1>
+          <p class="hero-desc">I build complete systems across embedded, edge AI, robotics, and software — from firmware up to the app.</p>
+          <div class="hero-cta">
+            <a class="btn solid" href="#work">View My Work ↗</a>
+            <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+          </div>
+        </div>
+
+        <div class="portrait-wrap">
+          <!-- PROFILE PHOTO — drop a file named photo.jpg next to index.html (goes B&W automatically) -->
+          <figure class="portrait">
+            <span class="block"></span>
+            <div class="frame">
+              <img src="does/profile.jpg" alt="Dayeon Lee" onerror="this.style.display='none'">
+              <div class="ph"><span class="ico">🪪</span><b>YOUR PHOTO</b><span>증명사진 → photo.jpg</span></div>
+            </div>
+            <div class="hero-tag">Based in<br><b>South Korea</b></div>
+            <div class="vtext">Available for Internship</div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="reveal">
+            <span class="kicker">About Me</span>
+            <h2 class="about-lead">I'm a developer who builds <em>complete systems</em> — from hardware to app.</h2>
+            <p>I'm a software developer based in South Korea, studying at <b>Daedeok Software Meister High School</b>, a specialized technical high school focused on software engineering.</p>
+            <p>My experience spans <b>embedded systems, edge AI, robotics, and application development</b>. I like starting from a real problem and building the whole system that solves it — writing firmware, running models on-device, wiring up the backend, and shipping the app that ties it together.</p>
+            <p>Right now I'm especially interested in gaining experience in international development environments and turning designs into fast, clean, production-ready web.</p>
+            <div class="sign">Dayeon Lee<span>Software Developer</span></div>
+          </div>
+          <aside class="stat-box reveal">
+            <div class="stat-big">8<em>+</em></div>
+            <div class="stat-sub">Projects Built</div>
+            <div class="stat-rows">
+              <div class="r"><span class="n">5</span><span class="t">Awards Won</span></div>
+              <div class="r"><span class="n">4</span><span class="t">Domains · Embedded / AI / Robotics / Web</span></div>
+              <div class="r"><span class="n">6</span><span class="t">Languages Used</span></div>
+              <div class="r"><span class="n">2025</span><span class="t">Coding Since</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES / WHAT I DO ============ -->
+    <section id="services">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">What I Do</span>
+          <h2 class="sec-title" style="margin-top:16px">Skills that<br>build real things</h2>
+        </div>
+        <div class="services reveal">
+          <div class="service">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2M9 9h6v6H9z"/></svg>
+            <h4>Embedded</h4>
+            <p>Firmware in C/C++ on ESP32, STM32 &amp; FreeRTOS.</p>
+          </div>
+          <div class="service">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+            <h4>Edge AI</h4>
+            <p>On-device vision &amp; TinyML — YOLO, OpenCV.</p>
+          </div>
+          <div class="service">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 3v5M9 13h.01M15 13h.01M8 19v2M16 19v2"/></svg>
+            <h4>Robotics</h4>
+            <p>Autonomous driving &amp; CV — award-winning.</p>
+          </div>
+          <div class="service">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+            <h4>App Dev</h4>
+            <p>Building apps with Flutter and native Android.</p>
+          </div>
+          <div class="service">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+            <h4>Web</h4>
+            <p>Hand-coded, responsive sites — design to clean front-end.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="skills-grid">
+          <div class="lead reveal">Skills that<br><em>drive</em> impact</div>
+          <div class="skill-rows reveal">
+            <div class="skill-row"><div class="cat">Embedded</div><div class="items"><span>C</span><span>C++</span><span>STM32</span><span>ESP32</span><span>FreeRTOS</span></div></div>
+            <div class="skill-row"><div class="cat">Edge &amp; Robotics</div><div class="items"><span>Linux</span><span>Raspberry Pi</span><span>Jetson</span><span>ROS2</span><span>MQTT</span></div></div>
+            <div class="skill-row"><div class="cat">AI</div><div class="items"><span>Python</span><span>YOLO</span><span>OpenCV</span><span>TinyML</span></div></div>
+            <div class="skill-row"><div class="cat">App &amp; Web</div><div class="items"><span>Flutter</span><span>Android</span><span>JavaScript</span><span>HTML</span><span>CSS</span></div></div>
+            <div class="skill-row"><div class="cat">Backend &amp; Data</div><div class="items"><span>REST API</span><span>MySQL</span></div></div>
+            <div class="skill-row"><div class="cat">Tools</div><div class="items"><span>Git</span><span>GitHub</span><span>Docker</span><span>Postman</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section id="work">
+      <div class="wrap">
+        <div class="work-head reveal">
+          <div>
+            <span class="kicker">Selected Work</span>
+            <h2 class="sec-title" style="margin-top:16px">Featured projects</h2>
+          </div>
+          <a class="btn ghost" href="https://github.com/develu0825" target="_blank" rel="noopener">All on GitHub ↗</a>
+        </div>
+
+        <div class="work-grid reveal">
+
+          <!-- WIFY -->
+          <article class="work-card">
+            <div class="top">
+              <img class="bg" src="does/wify.jpg" alt="WIFY" style="object-position:center 50%" onerror="this.remove()">
+              <span class="tag">System</span>
+              <div class="flow"><span class="big">〰️</span><br>ESP32 → Wi-Fi CSI → AI → App → Notification</div>
+            </div>
+            <div class="bottom">
+              <h3>WIFY</h3>
+              <div class="sub">Wi-Fi CSI Fall Detection · Firmware &amp; App</div>
+              <p class="desc">Privacy-preserving fall detection using Wi-Fi Channel State Information — no cameras, no wearables.<span class="rr"><b>My role</b> — CSI firmware, data pipeline, mobile app integration.</span><span class="rr"><b>Award</b> — Encouragement Award (4th), Global PIUDA Project 2026.</span></p>
+              <div class="stack"><span>ESP32</span><span>C/C++</span><span>Wi-Fi CSI</span><span>TinyML</span><span>Flutter</span></div>
+              <div class="links">
+                <a href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 3 .1 3.3.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5Z"/></svg>Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Acid Rain (Web) -->
+          <article class="work-card">
+            <div class="top">
+              <img class="bg" src="does/acidrain.jpg" alt="Acid Rain game" onerror="this.remove()">
+              <span class="tag">Web · Playable</span>
+              <div class="flow"><span class="big">🎮</span><br>Vanilla JS typing game — game loop, DOM, scoring, no framework</div>
+            </div>
+            <div class="bottom">
+              <h3>Acid Rain</h3>
+              <div class="sub">Browser Typing Game · JavaScript</div>
+              <p class="desc">A falling-word typing game (Japanese edition) — type the words before they hit the ground, with real-time spawning, a difficulty ramp, combo scoring, and lives.<span class="rr"><b>Built</b> — from scratch in vanilla JS: game loop, DOM rendering, input matching, collision &amp; state — no framework.</span></p>
+              <div class="stack"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Canvas/DOM</span></div>
+              <div class="links">
+                <a href="https://github.com/develu0825/acid-rain-game_JP" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 3 .1 3.3.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5Z"/></svg>Code</a>
+                <a href="https://develu0825.github.io/acid-rain-game_JP/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 4 20 12 6 20 6 4"/></svg>Play</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- WRO Robot -->
+          <article class="work-card">
+            <div class="top">
+              <img class="bg" src="does/wro.jpg" alt="WRO Robot" style="object-position:center 82%" onerror="this.remove()">
+              <span class="tag">Robotics</span>
+              <div class="flow"><span class="big">🤖</span><br>Autonomous Driving + Object Detection</div>
+            </div>
+            <div class="bottom">
+              <h3>WRO Robot</h3>
+              <div class="sub">Autonomous Robotics · Gold Award 2026</div>
+              <p class="desc">A self-driving model car for the WRO Future Engineers category — autonomous laps around a track with vision-based traffic-sign detection and obstacle avoidance.<span class="rr"><b>My role</b> — driving logic &amp; computer-vision detection.</span><span class="rr"><b>Result</b> — Gold Award (2nd Place), WRO Korea 2026.</span></p>
+              <div class="stack"><span>Raspberry Pi</span><span>LEGO SPIKE</span><span>Build HAT</span><span>OpenCV</span><span>Python</span></div>
+              <div class="links">
+                <a href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 3 .1 3.3.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5Z"/></svg>Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 우물집 / Umuljip -->
+          <article class="work-card">
+            <div class="top">
+              <img class="bg" src="does/umuljip.jpg" alt="Umuljip" style="object-position:center 60%" onerror="this.remove()">
+              <span class="tag">Hackathon · IoT</span>
+              <div class="flow"><span class="big">🌊</span><br>Water-level sensor → MQTT → Risk engine → Push alert</div>
+            </div>
+            <div class="bottom">
+              <h3>Umuljip</h3>
+              <div class="sub">우물집 · IoT Flood Detection</div>
+              <p class="desc">An IoT flood-detection system for semi-basement homes — real-time water-level sensing with a four-tier risk engine and instant push alerts.<span class="rr"><b>My role</b> — app, server &amp; hardware.</span><span class="rr"><b>Award</b> — Excellence Award (2nd Place), SW Meister HS Hackathon 2026.</span></p>
+              <div class="stack"><span>ESP32</span><span>Spring Boot</span><span>Java</span><span>MQTT</span><span>WebSocket</span><span>PostgreSQL</span><span>Docker</span></div>
+              <div class="links">
+                <a href="https://github.com/dsm-team-11" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 3 .1 3.3.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5Z"/></svg>Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pixel -->
+          <article class="work-card" style="grid-column: 1 / -1">
+            <div class="top">
+              <span class="tag">AI · Full-Stack</span>
+              <div class="flow"><span class="big">🛣️</span><br>Natural-language command → Vision AI + LLM → Auto-generated report</div>
+            </div>
+            <div class="bottom">
+              <h3>Pixel</h3>
+              <div class="sub">Road Inspection AI Platform · Web &amp; AI</div>
+              <p class="desc">A multimodal AI workspace for road inspection — natural-language commands drive object detection, image analysis, RAG document search, and automatic report generation.<span class="rr"><b>My role</b> — full-stack (React + FastAPI) and AI integration — built everything except the YOLO model.</span></p>
+              <div class="stack"><span>React</span><span>FastAPI</span><span>Python</span><span>YOLO</span><span>MobileSAM</span><span>RAG</span><span>Gemini / GPT-4o</span><span>Docker</span></div>
+              <div class="links">
+                <a href="https://github.com/DSM-Pixel/llm-job-support" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 3 .1 3.3.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5Z"/></svg>Code</a>
+                <a href="https://dsm.gyungdal.cc/login.html" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>Live App</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AWARDS ============ -->
+    <section id="awards">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Recognition</span>
+          <h2 class="sec-title" style="margin-top:16px">Awards</h2>
+        </div>
+        <div class="awards reveal">
+          <div class="award">
+            <div class="rk">Gold</div>
+            <div class="nfo"><h4>Gold Award · 2nd Place</h4><div class="m">WRO Future Engineering — Chungbuk Superintendent's Award</div></div>
+            <div class="yr">2026</div>
+          </div>
+          <div class="award">
+            <div class="rk">Top</div>
+            <div class="nfo"><h4>Excellence Award · 2nd Place</h4><div class="m">Daedeok SW Meister High School Hackathon</div></div>
+            <div class="yr">2026</div>
+          </div>
+          <div class="award">
+            <div class="rk">Merit</div>
+            <div class="nfo"><h4>Encouragement Award · 4th Place</h4><div class="m">Global PIUDA Project — Chungbuk Institute of Science &amp; Technology Innovation</div></div>
+            <div class="yr">2026</div>
+          </div>
+          <div class="award">
+            <div class="rk">Merit</div>
+            <div class="nfo"><h4>Encouragement Award · 4th Place</h4><div class="m">SW·AI Competition — Gimpo</div></div>
+            <div class="yr">2026</div>
+          </div>
+          <div class="award">
+            <div class="rk">Bronze</div>
+            <div class="nfo"><h4>Bronze Award</h4><div class="m">World Robot Olympiad — Middle School Division</div></div>
+            <div class="yr">2024</div>
+          </div>
+        </div>
+
+        <div class="award-gallery reveal">
+          <figure><img src="does/aw_wro.jpg" alt="WRO award ceremony" loading="lazy"><figcaption><b>Gold</b> · WRO Future Engineering</figcaption></figure>
+          <figure><img src="does/aw_umuljip.jpg" alt="Umuljip award ceremony" loading="lazy"><figcaption><b>Excellence</b> · SW Meister Hackathon</figcaption></figure>
+          <figure><img src="does/aw_piuda.jpg" alt="Global PIUDA award" loading="lazy"><figcaption><b>Merit</b> · Global PIUDA (WIFY)</figcaption></figure>
+          <figure><img src="does/aw_gimpo.jpg" alt="SW·AI competition" style="object-position:center 82%" loading="lazy"><figcaption><b>Merit</b> · SW·AI Competition</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section id="education">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Background</span>
+          <h2 class="sec-title" style="margin-top:16px">Education, Leadership<br>&amp; Activities</h2>
+        </div>
+        <div class="edu-grid reveal">
+          <div class="edu">
+            <span class="kicker">Education</span>
+            <h3>Daedeok Software<br>Meister High School</h3>
+            <div class="m">Software Development · 2025 – Present</div>
+            <p>Specialized technical high school focused on software engineering. Focus: Embedded Systems &amp; Software Engineering. Daejeon, South Korea.</p>
+          </div>
+          <div class="exp">
+            <span class="kicker">Leadership</span>
+            <div style="margin-top:18px"></div>
+            <div class="exp-item"><h4>Student Vice President</h4><div class="m">2026 · Daedeok SW Meister HS</div></div>
+            <div class="exp-item"><h4>Class President</h4><div class="m">2026 · Spring Semester</div></div>
+            <div class="exp-item"><h4>Class President</h4><div class="m">2025 · Both Semesters</div></div>
+            <div class="exp-item"><h4>Student Council Member</h4><div class="m">2025</div></div>
+          </div>
+        </div>
+
+        <div class="act reveal">
+          <span class="kicker">Activities &amp; Volunteering</span>
+          <div class="act-list">
+            <div class="exp-item"><h4>Volunteer Staff — WRO &amp; RoboTex Korea</h4><div class="m">2023 – 2026 · Robotics Competitions</div></div>
+            <div class="exp-item"><h4>Organized School Tech Events</h4><div class="m">2025 – 2026 · DaeTechTalk &amp; Ieum — Planning &amp; Hosting</div></div>
+            <div class="exp-item"><h4>Exhibited Projects — Umuljip &amp; WRO</h4><div class="m">2026 · Vocational &amp; Future Education Expos</div></div>
+            <div class="exp-item"><h4>withyou+ — Startup Team</h4><div class="m">2026 · Secured Investment</div></div>
+            <div class="exp-item"><h4>ABC Work-Experience Project</h4><div class="m">2026</div></div>
+            <div class="exp-item"><h4>Ongoing Competitions</h4><div class="m">2026 · Naver Connect · Open-Source Dev Contest</div></div>
+          </div>
+        </div>
+
+        <div class="cert reveal">
+          <span class="kicker">Certification</span>
+          <div class="c">Craftsman Information Processing <span>정보처리기능사 · Written Exam · National Technical Qualification, Korea</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section id="contact" class="cta-sec">
+      <div class="wrap reveal">
+        <span class="kicker" style="justify-content:center">What's Next</span>
+        <h2 style="margin-top:22px">Let's build<br>something <em>great.</em></h2>
+        <p>I'm currently looking for internship and collaboration opportunities in international development environments. If you'd like to see more of what I've built, reach out.</p>
+        <div class="btns">
+          <a class="btn solid" href="mailto:develu0825@gmail.com">Say Hello ↗</a>
+          <a class="btn ghost" href="https://github.com/develu0825" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/develu825/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">Dayeon Lee <i></i></div>
+          <p>Software developer building complete systems across embedded, edge AI, robotics, and web.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Navigation</h5>
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#awards">Awards</a>
+        </div>
+        <div class="foot-col">
+          <h5>Contact</h5>
+          <a href="mailto:develu0825@gmail.com">develu0825@gmail.com</a>
+          <a href="https://github.com/develu0825" target="_blank" rel="noopener">github.com/develu0825</a>
+          <a href="https://www.linkedin.com/in/develu825/" target="_blank" rel="noopener">LinkedIn</a>
+          <span>Daejeon, South Korea</span>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p>© 2026 Dayeon Lee — Designed &amp; built from scratch.</p>
+        <div class="socials">
+          <a href="https://github.com/develu0825" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.6c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.3-3.2-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 3 .1 3.3.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.6C24 5.9 18.6.5 12 .5Z"/></svg></a>
+          <a href="https://www.linkedin.com/in/develu825/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.74 2.6 4.74 6V21h-4v-5.3c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+          <a href="mailto:develu0825@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    const linkFor = id => navLinks.querySelector('a[href="#' + id + '"]');
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const link = linkFor(e.target.id); if (!link) return;
+        if (e.isIntersecting) { navLinks.querySelectorAll('a').forEach(a => a.classList.remove('active')); link.classList.add('active'); }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(r => revObs.observe(r));
+  </script>
+</body>
+</html>
