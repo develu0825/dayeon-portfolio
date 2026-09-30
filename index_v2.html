@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이다연 · Embedded Software Developer</title>
+  <meta name="description" content="이다연 포트폴리오 — 임베디드 소프트웨어 개발자" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- inline icon set (로고 없는 스킬용) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-chip" viewBox="0 0 24 24">
+      <rect x="7" y="7" width="10" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M10 7V4M14 7V4M10 20v-3M14 20v-3M7 10H4M7 14H4M20 10h-3M20 14h-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-wifi" viewBox="3 6 18 15">
+      <path d="M4.5 11.5a11 11 0 0 1 15 0M7.5 14.7a6.5 6.5 0 0 1 9 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="12" cy="18.5" r="1.6" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-neural" viewBox="0 0 24 24">
+      <circle cx="6" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="6" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="18" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M8 6.6 16 11M8 17.4 16 13" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24">
+      <path d="M4 8h16M4 12h16M4 16h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="8" cy="8" r="1.4" fill="currentColor"/><circle cx="15" cy="12" r="1.4" fill="currentColor"/><circle cx="11" cy="16" r="1.4" fill="currentColor"/>
+    </symbol>
+  </svg>
+
+  <!-- ==================== PAGE 1 : 서론 + SKILLS ==================== -->
+  <section class="sheet">
+    <div class="cover">
+      <div class="cover__top">
+        <div class="cover__id">
+          <p class="head__label">PORTFOLIO</p>
+          <h1 class="cover__name">이다연</h1>
+          <p class="cover__role">Embedded Software Developer</p>
+          <p class="cover__tagline">기회를 기다리기보다 <span class="hl">할 일을 찾아 움직이는</span> 개발자입니다.</p>
+          <p class="cover__kw">임베디드 · 펌웨어 · 베어메탈 · RTOS · 하드웨어 제어</p>
+        </div>
+        <div class="cover__photo">
+          <img src="gallary/증명사진.jpg?v=2" alt="이다연 프로필 사진" />
+        </div>
+      </div>
+      <ul class="contact">
+        <li><span>GitHub</span> <a href="https://github.com/develu0825" target="_blank" rel="noopener">github.com/develu0825</a></li>
+        <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/develu825/" target="_blank" rel="noopener">linkedin.com/in/develu825</a></li>
+        <li><span>Email</span> <a href="mailto:develu0825@gmail.com">develu0825@gmail.com</a></li>
+        <li><span>Phone</span> <a href="tel:01051520822">010-5152-0822</a></li>
+      </ul>
+    </div>
+
+    <!-- SKILLS -->
+    <section class="sec">
+      <h2 class="sec__title">Skills</h2>
+      <div class="skills">
+        <div class="skills__group">
+          <h3>Embedded / Firmware</h3>
+          <ul class="pills">
+            <li><img class="ico" src="https://cdn.simpleicons.org/c/A8B9CC" alt="" />C</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/stmicroelectronics/03234B" alt="" />STM32</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/espressif/E7352C" alt="" />ESP32</li>
+            <li>Bare-metal</li>
+            <li>RTOS</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/linux/FCC624" alt="" />Linux</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <h3>Communication</h3>
+          <ul class="pills">
+            <li>I2C</li>
+            <li>UART</li>
+            <li>SPI</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/mqtt/660066" alt="" />MQTT</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/bluetooth/0082FC" alt="" />Bluetooth</li>
+            <li><svg class="ico ico--g"><use href="#i-wifi"/></svg>Wi-Fi</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <h3>Robotics / Vision</h3>
+          <ul class="pills">
+            <li><img class="ico" src="https://cdn.simpleicons.org/ros/22314E" alt="" />ROS2</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/opencv/5C3EE8" alt="" />OpenCV</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/raspberrypi/A22846" alt="" />Raspberry Pi</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/nvidia/76B900" alt="" />Jetson</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <h3>AI / ML</h3>
+          <ul class="pills">
+            <li><img class="ico" src="https://cdn.simpleicons.org/python/3776AB" alt="" />Python</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/pytorch/EE4C2C" alt="" />PyTorch</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/ultralytics/111F68" alt="" />YOLO</li>
+            <li>LSTM</li>
+            <li>RAG</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <h3>Web / App</h3>
+          <ul class="pills">
+            <li><img class="ico" src="https://cdn.simpleicons.org/android/3DDC84" alt="" />Android</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/fastapi/009688" alt="" />FastAPI</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/qt/41CD52" alt="" />Qt</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <h3>Tools</h3>
+          <ul class="pills">
+            <li><img class="ico" src="https://cdn.simpleicons.org/git/F05032" alt="" />Git</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/notion/000000" alt="" />Notion</li>
+            <li><img class="ico" src="https://cdn.simpleicons.org/docker/2496ED" alt="" />Docker</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE 2 : 피우다 ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <h2 class="sec__title">Projects</h2>
+
+      <!-- PROJECT 1: 피우다 -->
+      <article class="proj">
+        <div class="proj__head">
+          <p class="proj__badge">대회 프로젝트 · 팀</p>
+          <h3 class="proj__title">wify</h3>
+          <p class="proj__award">글로벌 피우다 장려상 · 충북과학기술혁신원장상 (4등)</p>
+          <ul class="pills pills--sm"><li>Android</li><li>ESP32</li><li>ESP-IDF</li><li>WiFi CSI</li><li>MQTT</li></ul>
+          <div class="proj__btns">
+            <a class="btn-link" href="https://www.etnews.com/20260820000407" target="_blank" rel="noopener">언론 보도</a>
+            <a class="btn-link btn-link--fill" href="#" target="_blank" rel="noopener"><img class="ico" src="https://cdn.simpleicons.org/github/ffffff" alt="" />GitHub</a>
+          </div>
+        </div>
+        <div class="proj__shots">
+          <span class="shot shot--blur" style="--bg: url('gallary/wify.jpg')"><img src="gallary/wify.jpg" alt="wify 센싱 보드" style="object-fit: contain; object-position: 50% 100%;" /></span>
+          <span class="shot"><img src="gallary/피우다_기기설치.png" alt="wify 기기 설치" /></span>
+        </div>
+        <p class="demo-link"><a href="https://www.youtube.com/watch?v=b4oFeqqJiIM" target="_blank" rel="noopener">▶ 시연영상 보러가기</a></p>
+        <div class="proj__body">
+          <div class="proj__row"><h4>개요</h4><p>카메라 없이 Wi-Fi 신호의 미세한 변화(CSI)를 분석해 실내 낙상을 감지하는 시스템입니다. 사생활 침해 없이 고령자의 낙상을 감지하는 것을 목표로, ESP32로 수집한 신호를 딥러닝 모델로 판별하고 결과를 Android 앱으로 전달해 보호자가 즉시 확인할 수 있도록 구현했습니다.</p></div>
+          <div class="proj__row"><h4>기간 · 인원</h4>
+            <ul>
+              <li>2026.03 ~ 2026.08</li>
+              <li>이다연 (APP·EM) · 염세현 (BE·EM) · 이지우 (AI)</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>주요 기능</h4>
+            <ul>
+              <li>카메라 없이 Wi-Fi CSI로 실내 낙상을 실시간 감지</li>
+              <li>낙상 감지 시 보호자 앱으로 즉시 알림 전송</li>
+              <li>기기 등록·선택 및 상태 확인</li>
+              <li>ESP32 → 서버 → 앱으로 이어지는 실시간 데이터 연동</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>맡은 역할</h4>
+            <div class="role-group">
+              <span class="role-group__h">ESP32 STA 펌웨어 개발</span>
+              <ul>
+                <li>Wi-Fi STA 모드로 공유기에 접속해 ESP32에서 <span class="hl">CSI(Channel State Information) 신호를 실시간 수집</span></li>
+                <li>수집한 CSI 원신호(64개 서브캐리어)를 <span class="hl">서버로 전송하는 통신 로직 구현</span></li>
+                <li>연결 유지·재연결 처리로 신호가 끊기지 않도록 전송 흐름을 안정화</li>
+                <li>헤더(.h)/소스(.c) 분리, @brief·@param 등 Doxygen 스타일 주석으로 함수 문서화</li>
+                <li>함수·변수 역할과 코드 구조를 정리하며 펌웨어 기본기 확립</li>
+              </ul>
+            </div>
+            <div class="role-group">
+              <span class="role-group__h">Android 앱 개발</span>
+              <ul>
+                <li>실시간 낙상 감지 결과 표시 및 보호자 알림 화면 구현</li>
+                <li>기기 등록·선택·상태 확인 화면 구현</li>
+                <li>서버(MQTT)로 수신한 위험 상태를 앱 UI에 실시간 반영</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE 3 : 피우다 (이어서) ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <article class="proj">
+        <div class="proj__body">
+          <div class="proj__row"><h4>주요 성과</h4>
+            <ul>
+              <li>약 50개 팀 참가 → 예선 30 → 15팀 통과, 본선 진출</li>
+              <li>최종 장려상 수상 (은상과 1팀 차)</li>
+              <li><span class="hl">펌웨어–서버–앱 전체 연동</span>을 완성해 실시연까지 진행</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>문제 해결</h4>
+            <div class="ts">
+              <p class="ts__title">앱–펌웨어 연동이 반복적으로 끊기는 문제</p>
+              <p class="ts__label">문제 배경</p>
+              <p>개발 중 휴대폰 핫스팟 환경에서 앱과 펌웨어를 연동해 테스트했는데, 통신이 주기적으로 끊겨 데이터 수신이 불안정했습니다.</p>
+              <p class="ts__label">해결 방법</p>
+              <p>원인이 핫스팟이 UDP 트래픽을 주기적으로 차단하는 데 있음을 확인하고, 별도 공유기 환경으로 전환해 안정적인 통신을 확보했습니다.</p>
+            </div>
+            <div class="ts">
+              <p class="ts__title">통신 기능을 STA 모드에 둘지 AP 모드에 둘지</p>
+              <p class="ts__label">문제 배경</p>
+              <p>앱 연결과 서버 전송 기능을 ESP32의 STA(기존 Wi-Fi 접속) 모드에서 처리할지, AP(기기가 직접 네트워크를 제공) 모드에서 처리할지 결정해야 했습니다. 두 방식은 연결 안정성, 초기 설정 편의성, 서버 접근성에서 장단점이 달랐습니다.</p>
+              <p class="ts__label">해결 방법</p>
+              <p>서버로의 데이터 전송과 안정적인 연결이 핵심 요구사항이라고 판단해, 기존 네트워크에 접속하는 STA 모드를 기준으로 통신 구조를 구성했습니다. 기술을 먼저 정하기보다 요구사항을 먼저 정의하고 모드를 선택하는 과정이었습니다.</p>
+            </div>
+          </div>
+          <div class="proj__row"><h4>회고</h4><p>가장 걱정했던 펌웨어–서버–앱 전체 연동이 예상보다 잘 풀려 실제 서비스처럼 동작하는 것을 확인했을 때 큰 성취감을 느꼈습니다. 펌웨어를 직접 구조부터 작성하며 처음으로 코드를 짜는 재미와 자신감을 얻었고, 통신 구조를 어디에 둘지 고민하며 '기술을 먼저 정하기보다 요구사항을 먼저 정의해야 한다'는 것을 배웠습니다. 예선에서는 확장성 관련 Q&amp;A에 잘 답하지 못했지만 본선에서는 발표 연습을 거듭해 안정적으로 마쳤고, 현업 개발자·성인 참가자가 많은 대회에서 장려상을 받으며 결과보다 과정에서 더 많은 것을 얻은 프로젝트였습니다.</p></div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE : HailMary ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <article class="proj">
+        <div class="proj__head">
+          <p class="proj__badge">팀 프로젝트 · 진행중</p>
+          <h3 class="proj__title">HailMary <span>배전 전주 위험 자동 기록</span></h3>
+          <p class="proj__award">Edge Vision 파이프라인 · 서버 연동 담당</p>
+          <ul class="pills pills--sm"><li>Jetson</li><li>V4L2</li><li>OpenCV</li><li>TensorRT</li><li>WebSocket</li><li>FastAPI</li></ul>
+          <div class="proj__btns">
+            <a class="btn-link btn-link--fill" href="https://github.com/DSM-Hail-mary" target="_blank" rel="noopener"><img class="ico" src="https://cdn.simpleicons.org/github/ffffff" alt="" />GitHub</a>
+          </div>
+        </div>
+        <div class="proj__shots">
+          <span class="shot shot--ph">이미지 준비중</span>
+          <span class="shot shot--ph">이미지 준비중</span>
+        </div>
+        <div class="proj__body">
+          <div class="proj__row"><h4>개요</h4><p>차량 지붕에 카메라와 Jetson을 달고 주행하면, 지나치는 배전 전주 상단의 위험 요소(까치집·수목)를 자동으로 촬영·판정해 서버·대시보드에 기록하는 시스템입니다. 원본 영상은 기기 밖으로 내보내지 않고 판정 결과와 사진만 전송해 프라이버시를 지킵니다. 저는 <span class="hl">카메라 입력부터 서버 연동까지의 Edge Vision 파이프라인</span>을 담당했습니다.</p></div>
+          <div class="proj__row"><h4>기간 · 인원</h4>
+            <ul>
+              <li>2026.09 ~ 진행중</li>
+              <li>이다연 (Edge Vision·서버) · 염세현 (스트리밍·AI)</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>주요 기능</h4>
+            <ul>
+              <li>주행 중 전주 상단을 자동 촬영하고 위험(까치집·수목)을 판정</li>
+              <li>원본 영상은 기기 밖으로 전송하지 않고 판정 결과·사진만 서버로 전송 (프라이버시)</li>
+              <li>온도·전력·GPS 등 기기 상태를 실측해 함께 전송</li>
+              <li>네트워크가 끊겨도 유실 없이 순서를 보존해 실시간 전송</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>맡은 역할</h4>
+            <div class="role-group">
+              <span class="role-group__h">카메라 입력 · 프레임 처리 (V4L2 · OpenCV)</span>
+              <ul>
+                <li>V4L2로 USB 카메라 MJPG 1280×720 30fps 확보, 고정노출(≈1/1000s)로 주행 중 모션블러 억제</li>
+                <li>camera.py — 캡처 전용 스레드 + 바운드 큐(생산자–소비자) 구조로 추론 부하가 캡처를 막지 않게 설계, 프레임 드롭 카운터로 드롭 0% 측정</li>
+                <li>best_frame.py — Laplacian variance로 전주당 가장 선명한 한 장을 선택</li>
+              </ul>
+            </div>
+            <div class="role-group">
+              <span class="role-group__h">엣지 통합 · 서버 연동</span>
+              <ul>
+                <li>metrics.py(온도·전력·fps 실측) · gps.py(u-blox NMEA 파싱) · pipeline.py(카메라+지표+GPS+전송 오케스트레이션) 구현</li>
+                <li>telemetry_client.py — WebSocket 실시간 전송 + 자동 재연결·오프라인 버퍼로 유실 없는 전송</li>
+                <li>FastAPI + SQLite 서버 구축, 프론트 계약에 맞춰 전 엔드포인트 e2e 검증 및 계약 회귀 테스트 작성</li>
+              </ul>
+            </div>
+            <div class="role-group">
+              <span class="role-group__h">Jetson 엣지 환경</span>
+              <ul>
+                <li>Jetson Orin Nano 세팅(JetPack·CUDA·TensorRT), 더미 YOLO(ONNX → TensorRT FP16)로 추론 배관을 사전 검증</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE : HailMary (이어서) ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <article class="proj">
+        <div class="proj__body">
+          <div class="proj__row"><h4>문제 해결</h4>
+            <div class="ts">
+              <p class="ts__title">추론 부하가 카메라 캡처를 막아 프레임이 밀리는 문제</p>
+              <p class="ts__label">문제 배경</p>
+              <p>AI 추론과 카메라 캡처가 한 흐름에 묶이면, 추론이 느려질 때 프레임이 밀려 드롭이 발생하고 주행 영상이 끊깁니다.</p>
+              <p class="ts__label">해결 방법</p>
+              <p>캡처 전용 스레드와 바운드 큐(생산자–소비자)로 캡처와 처리를 분리해, 추론 부하와 무관하게 캡처가 유지되도록 설계했습니다. 프레임 드롭 카운터로 '드롭 0%'를 수치로 검증했습니다.</p>
+            </div>
+            <div class="ts">
+              <p class="ts__title">주행 중 Wi-Fi가 끊기면 데이터가 유실되는 문제</p>
+              <p class="ts__label">문제 배경</p>
+              <p>이동하며 촬영하다 보니 네트워크가 자주 끊겼고, 그때마다 전송 중이던 판정 결과·기기 상태가 유실될 수 있었습니다.</p>
+              <p class="ts__label">해결 방법</p>
+              <p>자동 재연결과 오프라인 버퍼를 두어, 연결이 끊겨도 데이터를 순서대로 보관했다가 복구되면 유실 없이 전송하도록 구현했습니다.</p>
+            </div>
+          </div>
+          <div class="proj__row"><h4>회고</h4><p>팀원이 만든 AI 탐지 결과를 실제 하드웨어 위에서 하나의 시스템으로 이어 붙이는 Edge Vision 파이프라인을 맡으며, 성능을 '감'이 아니라 프레임 드롭·온도·전력 같은 실측 지표로 검증하는 것의 중요성을 배우고 있습니다. <span class="todo">(Vision 추론 연동은 진행 중)</span></p></div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE : BARN-AI ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <article class="proj">
+        <div class="proj__head">
+          <p class="proj__badge">임베디드 경진대회 · 팀 → 개인 이어서 진행</p>
+          <h3 class="proj__title">BARN-AI <span>축사 환경 모니터링 로봇</span></h3>
+          <p class="proj__award">ROS2 노드 구조 설계 · 인지/분석 노드 구현</p>
+          <ul class="pills pills--sm"><li>ROS2</li><li>Nav2</li><li>Python</li><li>Jetson</li><li>OpenCV</li></ul>
+          <div class="proj__btns">
+            <a class="btn-link btn-link--fill" href="https://github.com/DSM-BARN-AI" target="_blank" rel="noopener"><img class="ico" src="https://cdn.simpleicons.org/github/ffffff" alt="" />GitHub</a>
+          </div>
+        </div>
+        <div class="proj__shots">
+          <span class="shot shot--blur" style="--bg: url('gallary/BARN-AI_노드구조.jpg')"><img src="gallary/BARN-AI_노드구조.jpg" alt="BARN-AI ROS2 노드 구조도" style="object-fit: contain;" /></span>
+          <span class="shot shot--ph">이미지 준비중</span>
+        </div>
+        <div class="proj__body">
+          <div class="proj__row"><h4>개요</h4><p>자율주행 로봇이 축사를 순찰하며 가스·온습도·미세먼지·열화상·배설물을 실시간으로 감지하고, 위험을 판단해 알림·인터록까지 수행하는 모니터링 시스템입니다. 저는 <span class="hl">ROS2 노드 구조 전체를 직접 설계</span>하고 인지·분석 노드를 구현했습니다.</p></div>
+          <div class="proj__row"><h4>기간 · 인원</h4>
+            <ul>
+              <li>2026.06 ~ 2026.10</li>
+              <li>이다연 (ROS·AI) · 손서원 (FPGA) · 염세현 (BSP)</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>주요 기능</h4>
+            <ul>
+              <li>가스·온습도·미세먼지·열화상 실시간 수집 및 대시보드 시각화</li>
+              <li>카메라 + 열화상 기반 배설물 위치 탐지</li>
+              <li>가스 농도 예측·위험 등급 산출 → 임계 초과 시 알림 및 인터록 명령</li>
+              <li>위험 구역을 회피하며 Nav2로 자율 순찰</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>맡은 역할</h4>
+            <div class="role-group">
+              <span class="role-group__h">ROS2 노드 아키텍처 설계</span>
+              <ul>
+                <li>센서 수집(sensor_bridge) → 인지·분석 → 위험 판단(risk_assessor) → 순찰·알림·인터록으로 이어지는 노드 구조를 역할 단위로 직접 설계</li>
+                <li>센서 raw → 분석 → 위험 등급 → 인터록 명령까지의 토픽 파이프라인과 barn_msgs 커스텀 메시지 정의</li>
+                <li>Nav2 액션(navigate_to_pose) 연동으로 위험 구역 회피 순찰 노드 구성</li>
+              </ul>
+            </div>
+            <div class="role-group">
+              <span class="role-group__h">인지·분석 노드 구현</span>
+              <ul>
+                <li>카메라·열화상 기반 배설물 탐지 노드 구현 (Python)</li>
+                <li>가스 농도 평가·예측 및 위험 등급 이벤트 분할 노드 구현</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE : BARN-AI (2) ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <article class="proj">
+        <div class="proj__body">
+          <div class="proj__row"><h4>문제 해결</h4>
+            <div class="ts">
+              <p class="ts__title">기능을 한 노드에 몰면 병목·강결합이 생기는 문제</p>
+              <p class="ts__label">문제 배경</p>
+              <p>센서 수집·인지·분석·위험 판단·순찰·알림이 서로 얽혀 있어, 한 노드에 몰아넣으면 병목이 생기고 유지보수·확장·디버깅이 어려워지는 구조였습니다.</p>
+              <p class="ts__label">해결 방법</p>
+              <p>기능을 노드 단위로 분리하고 토픽으로 느슨하게 연결했습니다. 센서 → 분석 → 위험 판단 → 인터록으로 이어지는 단방향 파이프라인과 커스텀 메시지(barn_msgs)를 먼저 정의해, 노드를 독립적으로 개발·교체·디버깅할 수 있는 구조로 만들었습니다.</p>
+            </div>
+          </div>
+          <div class="proj__row"><h4>회고</h4><p>큰 시스템을 역할별 노드로 분해하고 메시지 인터페이스를 먼저 정의하는 것의 중요성을 배웠습니다. 기능이 아니라 데이터 흐름을 기준으로 구조를 설계하니 확장과 협업이 훨씬 수월해졌습니다.</p></div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE 4 : AWARDS + LEADERSHIP + EXPERIENCE ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <h2 class="sec__title">Competitions &amp; Awards</h2>
+      <ul class="tl">
+        <li><span class="tl__date">2026</span><div><b>WRO : Future Engineering — 금상 (2등)</b><p>충청북도교육감상 · 자율주행 로봇</p></div></li>
+        <li><span class="tl__date">2026</span><div><b>교내 해커톤 — 최우수상 (2등)</b><p>우물집(wellHouse) IoT 침수 대비 서비스</p></div></li>
+        <li><span class="tl__date">2026</span><div><b>글로벌 피우다 — 장려상 (4등)</b><p>충북과학기술혁신원장상 · CSI 낙상 감지</p></div></li>
+        <li><span class="tl__date">2026</span><div><b>SW/AI 경진대회 (김포) — 장려상 (4등)</b></div></li>
+        <li><span class="tl__date">2026</span><div><b>ERICA 해커톤 — 예선 합격</b></div></li>
+        <li><span class="tl__date">진행중</span><div><b>Naver Connect · 빛가람</b></div></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">Leadership &amp; Communication</h2>
+      <div class="star-list">
+        <article class="star">
+          <h3>전교 부회장 · 학급 임원</h3>
+          <p>2025 학생회·반장부터 2026 전교 부회장까지 학생 대표를 맡으며 대크톡·이음 등 학교 행사를 직접 기획·운영했습니다. 여러 구성원의 의견을 모아 실행하며 조율과 소통 역량을 키웠습니다.</p>
+        </article>
+        <article class="star">
+          <h3>투자 IR 피칭 · 발표</h3>
+          <p>withyou+ 서비스로 에듀플렉스 기업 투자 IR 피칭에 참여해, 문제 정의와 기술 구성을 투자자·비개발자가 이해할 수 있도록 정리해 발표했습니다. 기술을 청중 눈높이에 맞춰 전달하는 경험을 쌓았습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">Experience</h2>
+      <ul class="exp-list">
+        <li><span class="exp__when">2025·2026</span><div><b>WRO · 로보텍스 코리아 자원봉사</b><p>로봇 대회 운영 지원</p></div></li>
+        <li><span class="exp__when">2026</span><div><b>박람회 전시 · 부스 운영</b><p>직업계고박람회 · 미래교육박람회 · 학과체험 · 대프콘(Nonamed wify)</p></div></li>
+        <li><span class="exp__when">2025·2026</span><div><b>개발 컨퍼런스 · 네트워킹</b><p>Google I/O · AI EXPO · 소프트웨이브 · Base44 바이브코딩 · 창업 밋업 등</p></div></li>
+      </ul>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE 5 : OTHER + CERTIFICATE + GALLERY ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <h2 class="sec__title">Other Projects</h2>
+      <div class="mini-grid">
+        <a class="mini" href="https://github.com/DSM-Nonamed-WRO/WRO-Rasp-EM-Code" target="_blank" rel="noopener">
+          <span class="mini__lang">Robotics</span>
+          <h3>WRO : Future Engineering</h3>
+          <p>자율주행 로봇 · WRO 금상(2등) · 하드웨어 제작 + 주행 소프트웨어</p>
+        </a>
+        <a class="mini" href="https://github.com/dsm-team-11" target="_blank" rel="noopener">
+          <span class="mini__lang">App·BE</span>
+          <h3>우물집 (wellHouse)</h3>
+          <p>IoT 침수 대비 서비스 · 교내 해커톤 최우수상 (앱·백엔드 단독)</p>
+        </a>
+        <a class="mini" href="https://github.com/DSM-Pixel/llm-job-support" target="_blank" rel="noopener">
+          <span class="mini__lang">AI·Web</span>
+          <h3>Pixel</h3>
+          <p>도로 점검 멀티모달 AI 플랫폼 · 지엔소프트 기업 프로젝트</p>
+        </a>
+        <a class="mini" href="https://github.com/Withyou-app" target="_blank" rel="noopener">
+          <span class="mini__lang">App</span>
+          <h3>withyou+</h3>
+          <p>심리 상담 앱 · 투자 IR 피칭 진행</p>
+        </a>
+        <a class="mini" href="https://github.com/develu0825/acid-rain-game_JP" target="_blank" rel="noopener">
+          <span class="mini__lang">JS</span>
+          <h3>acid-rain-game</h3>
+          <p>단어 타이핑 산성비 게임</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">Certificate</h2>
+      <ul class="cert-list">
+        <li><b>정보처리기능사</b> <span>필기 합격</span></li>
+        <li><b>AI-testing 수료</b> <span>결과 대기중</span></li>
+      </ul>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec__title">Gallery</h2>
+      <div class="gallery">
+        <figure><img src="gallary/피우다_상수령.jpg" alt="글로벌 피우다 장려상 수령" /><figcaption>글로벌 피우다 장려상</figcaption></figure>
+        <figure><img src="gallary/WRO_시상식.jpg" alt="WRO 시상식" /><figcaption>WRO 금상 시상식</figcaption></figure>
+        <figure><img src="gallary/우물집_시상식.jpg" alt="우물집 시상식" /><figcaption>교내 해커톤 최우수상</figcaption></figure>
+        <figure><img src="gallary/김포 SW AI.jpg" alt="김포 SW AI 경진대회" /><figcaption>SW/AI 경진대회 (김포)</figcaption></figure>
+        <figure><img src="gallary/직업계고 박람회 부스.jpg" alt="직업계고 박람회 부스" /><figcaption>직업계고 박람회 부스 운영</figcaption></figure>
+        <figure><img src="gallary/구글 io 컨퍼런스.png" alt="Google I/O 컨퍼런스" /><figcaption>Google I/O 컨퍼런스</figcaption></figure>
+        <figure><img src="gallary/ai builder 행사.jpg" alt="AI Builder 행사" /><figcaption>AI Builder 행사</figcaption></figure>
+        <figure><img src="gallary/국방산업발전대전.jpg" alt="국방산업발전 대전" /><figcaption>국방산업발전 대전</figcaption></figure>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>© 2026 이다연 · Embedded Software Developer</p>
+    </footer>
+  </section>
+
+</body>
+</html>
