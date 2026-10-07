@@ -229,12 +229,15 @@
             <a class="btn-link btn-link--fill" href="https://github.com/DSM-Hail-mary" target="_blank" rel="noopener"><img class="ico" src="https://cdn.simpleicons.org/github/ffffff" alt="" />GitHub</a>
           </div>
         </div>
-        <div class="proj__shots">
-          <span class="shot"><img src="gallary/hailmary_구조도.png" alt="Edge Vision 파이프라인 담당 구조" style="object-position: center;" /></span>
-          <span class="shot"><img src="gallary/hailmary_성능그래프.png" alt="HailMary 성능 최적화 측정 그래프" style="object-position: center;" /></span>
-        </div>
         <div class="proj__body">
           <div class="proj__row"><h4>개요</h4><p>차량 지붕에 카메라와 Jetson을 달고 주행하면, 지나치는 배전 전주 상단의 위험 요소(까치집·수목)를 자동으로 촬영·판정해 서버·대시보드에 기록하는 시스템입니다. 원본 영상은 기기 밖으로 내보내지 않고 판정 결과와 사진만 전송해 프라이버시를 지킵니다. 저는 <span class="hl">카메라 입력부터 서버 연동까지의 Edge Vision 파이프라인</span>을 담당했습니다.</p></div>
+          <div class="proj__row"><h4>주요 성과 (실보드 측정)</h4>
+            <ul>
+              <li>엣지 파이프라인 처리량 <span class="hl">15fps → 30fps(2배)</span>, E2E 지연 <span class="hl">66ms → 20ms(약 70%↓)</span></li>
+              <li>30분 연속 실연동 구동에서 <span class="hl">FPS 29.97 고정·크래시 0·예외 60건 전부 격리</span> (드롭 0.43%)</li>
+              <li>전력 5.2W·온도 49°C로 스로틀 임계(87°C) 한참 아래 — 장시간 주행 안정성 입증</li>
+            </ul>
+          </div>
           <div class="proj__row"><h4>기간 · 인원</h4>
             <ul>
               <li>2026.09 ~ 2026.10</li>
@@ -266,14 +269,6 @@
                 <li>FastAPI + SQLite 서버 구축, 프론트 계약에 맞춰 전 엔드포인트 e2e 검증 및 계약 회귀 테스트 작성</li>
               </ul>
             </div>
-            <div class="role-group">
-              <span class="role-group__h">Jetson 성능 최적화 (실보드 측정)</span>
-              <ul>
-                <li>Jetson Orin Nano 세팅(JetPack·CUDA·TensorRT) 후, 성능 측정 도구로 병목이 추론이 아닌 카메라 캡처임을 규명</li>
-                <li>NVDEC 하드웨어 디코드 + 캡처 스레드 분리로 파이프라인 <span class="hl">15fps → 30fps</span>, E2E 지연 <span class="hl">66ms → 20ms (약 70%↓)</span></li>
-                <li>30분 연속 실연동 구동에서 <span class="hl">FPS 29.97 고정·크래시 0</span>, 전력 5.2W·49°C로 스로틀 없이 안정</li>
-              </ul>
-            </div>
           </div>
         </div>
       </article>
@@ -300,6 +295,20 @@
               <p class="ts__label">해결 방법</p>
               <p>자동 재연결과 오프라인 버퍼를 두어, 연결이 끊겨도 데이터를 순서대로 보관했다가 복구되면 유실 없이 전송하도록 구현했습니다.</p>
             </div>
+          </div>
+          <div class="proj__row"><h4>안정성 · 장애 복구 (실하드웨어 검증)</h4>
+            <ul>
+              <li>실카메라→실탐지→실서버 30분 연속 + 30초마다 예외 주입: <span class="hl">FPS avg 29.97 · E2E p95 22ms</span>, 드롭 0.43%, <span class="hl">예외 60건 전부 격리 · 크래시 0</span></li>
+              <li>카메라 USB 단절 자동 재오픈 — 실제 USB unbind/rebind로 검증 (단절 중 버티다 재연결 시 자동 복구)</li>
+              <li>프레임 단위 예외 격리 + 오프라인 버퍼 상한으로 session·detection 무손실 보존</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>산출물 · 확장 여지</h4>
+            <ul>
+              <li>엣지 모듈 — camera.py · best_frame.py · metrics.py · gps.py · telemetry_client.py · pipeline.py</li>
+              <li>서버 — FastAPI · SQLite · 계약 회귀 테스트</li>
+              <li>추론 여유(GPU 33%)로 2단 추론(검출→분류)까지 확장 가능</li>
+            </ul>
           </div>
           <div class="proj__row"><h4>회고</h4><p>팀원이 만든 AI 탐지 결과를 실제 하드웨어 위에서 하나의 시스템으로 이어 붙이는 Edge Vision 파이프라인을 맡으며, 성능을 '감'이 아니라 프레임 드롭·지연·온도·전력 같은 실측 지표로 검증하는 것의 중요성을 배웠습니다. 엣지 파이프라인을 실보드에서 검증하고, 팀원의 탐지 모델 연동까지 구동을 확인했습니다.</p></div>
         </div>
