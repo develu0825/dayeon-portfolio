@@ -152,19 +152,19 @@ img { display: block; max-width: 100%; }
 
 /* 세현 스타일 — 맡은 역할 그룹 / 트러블슈팅 */
 .role-group { margin-bottom: 12px; }
-.role-group__h { display: block; color: var(--accent); font-weight: 700; font-size: .92rem; margin-bottom: 6px; }
+.role-group__h { display: block; color: var(--ink-2); font-weight: 700; font-size: .85rem; margin: 9px 0 5px; padding-left: 9px; border-left: 2px solid var(--accent); }
 .ts { margin-bottom: 18px; }
 .ts:last-child { margin-bottom: 0; }
 .ts__title {
-  color: var(--accent); font-weight: 800; font-size: 1.12rem; letter-spacing: -.01em;
-  margin-bottom: 10px; padding-left: 16px; position: relative;
+  color: var(--accent); font-weight: 800; font-size: 1.05rem; letter-spacing: -.01em;
+  margin-bottom: 3px; padding-left: 15px; position: relative;
 }
-.ts__title::before { content: "■"; position: absolute; left: 0; top: .18em; font-size: .62em; }
+.ts__title::before { content: "■"; position: absolute; left: 0; top: .34em; font-size: .56em; }
 .ts__label {
   display: inline-block; font-weight: 700; font-size: .78rem; color: var(--ink-3);
-  letter-spacing: .02em; margin: 10px 0 2px;
+  letter-spacing: .02em; margin: 7px 0 2px; padding-left: 15px;
 }
-.ts__label::before { content: "• "; color: var(--accent); }
+.ts__label::before { content: ""; }
 .ts p:not(.ts__title):not(.ts__label) { font-size: 0.92rem; color: var(--ink-2); line-height: 1.6; margin: 0 0 0 16px; }
 
 /* ==================== AWARDS / TIMELINE ==================== */
