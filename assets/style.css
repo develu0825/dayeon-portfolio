@@ -243,7 +243,20 @@ img { display: block; max-width: 100%; }
     box-shadow: none; break-after: page;
   }
   .sheet:last-child { break-after: auto; }
-  .proj, .star, .mini, .gallery figure { break-inside: avoid; }
+  .star, .mini, .gallery figure { break-inside: avoid; }
+  .proj__head, .proj__shots, .role-group, .ts, .proj__row { break-inside: avoid; }
+  .sec__title { break-after: avoid; }
+  .proj__head { break-after: avoid; }
   a { color: var(--ink); }
   .todo { display: none; }
+  /* print-only vertical tightening to fit each sheet onto one A4 */
+  .sec { padding-top: 16px; }
+  .tl li { padding: 7px 0; }
+  .exp-list li { padding: 8px 0; }
+  .star-list { gap: 11px; }
+  .star p { margin-bottom: 5px; }
+  .proj__row { margin-bottom: 12px; }
+  .proj__row li { margin-bottom: 4px; }
+  .gallery { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .mini-grid { gap: 10px; }
 }
