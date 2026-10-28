@@ -178,12 +178,6 @@
         <p class="demo-link"><a href="https://www.youtube.com/watch?v=b4oFeqqJiIM" target="_blank" rel="noopener">▶ 시연영상 보러가기</a></p>
         <div class="proj__body">
           <div class="proj__row"><h4>개요</h4><p>카메라 없이 Wi-Fi 신호의 미세한 변화(CSI)를 분석해 실내 낙상을 감지하는 시스템입니다. 사생활 침해 없이 고령자의 낙상을 감지하는 것을 목표로, ESP32로 수집한 신호를 딥러닝 모델로 판별하고 결과를 Android 앱으로 전달해 보호자가 즉시 확인할 수 있도록 구현했습니다.</p></div>
-          <div class="proj__row"><h4>기간 · 인원</h4>
-            <ul>
-              <li>2026.03 ~ 2026.08</li>
-              <li>이다연 (APP·EM) · 염세현 (BE·EM) · 이지우 (AI)</li>
-            </ul>
-          </div>
           <div class="proj__row"><h4>주요 기능</h4>
             <ul>
               <li>카메라 없이 Wi-Fi CSI로 실내 낙상을 실시간 감지</li>
@@ -192,15 +186,31 @@
               <li>ESP32 → 서버 → 앱으로 이어지는 실시간 데이터 연동</li>
             </ul>
           </div>
+          <div class="proj__row"><h4>기간 · 인원</h4>
+            <ul>
+              <li>2026.03 ~ 2026.08</li>
+              <li>이다연 (APP·EM) · 염세현 (BE·EM) · 이지우 (AI)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE 3 : 피우다 (역할 · 성과) ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <article class="proj">
+        <div class="proj__body">
           <div class="proj__row"><h4>맡은 역할</h4>
             <div class="role-group">
-              <span class="role-group__h">ESP32 STA 펌웨어 개발</span>
+              <span class="role-group__h">ESP32 STA 펌웨어 개발 (C · ESP-IDF)</span>
               <ul>
-                <li>Wi-Fi STA 모드로 공유기에 접속해 ESP32에서 <span class="hl">CSI(Channel State Information) 신호를 실시간 수집</span></li>
-                <li>수집한 CSI 원신호(64개 서브캐리어)를 <span class="hl">서버로 전송하는 통신 로직 구현</span></li>
-                <li>연결 유지·재연결 처리로 신호가 끊기지 않도록 전송 흐름을 안정화</li>
-                <li>헤더(.h)/소스(.c) 분리, @brief·@param 등 Doxygen 스타일 주석으로 함수 문서화</li>
-                <li>함수·변수 역할과 코드 구조를 정리하며 펌웨어 기본기 확립</li>
+                <li>Wi-Fi STA 모드로 공유기에 접속해 ESP32에서 <span class="hl">CSI(Channel State Information)를 실시간 수집</span> (패킷마다 64개 서브캐리어의 진폭·위상 변화를 추출)</li>
+                <li>수집한 CSI 원신호를 <span class="hl">UDP로 서버에 전송하는 통신 로직 구현</span>, 전송 주기·버퍼를 조정해 끊김 없이 스트리밍</li>
+                <li>연결 유지·자동 재연결 처리로 테스트 중 신호가 끊겨도 전송 흐름이 복구되도록 안정화</li>
+                <li>헤더(.h)/소스(.c) 분리와 @brief·@param Doxygen 주석으로 함수 단위 문서화 (팀원이 헤더만 보고 인터페이스를 파악하도록)</li>
+                <li>함수·변수 역할과 코드 구조를 정리하며 임베디드 펌웨어 기본기 확립</li>
               </ul>
             </div>
             <div class="role-group">
@@ -209,26 +219,28 @@
                 <li>실시간 낙상 감지 결과 표시 및 보호자 알림 화면 구현</li>
                 <li>기기 등록·선택·상태 확인 화면 구현</li>
                 <li>서버(MQTT)로 수신한 위험 상태를 앱 UI에 실시간 반영</li>
+                <li>펌웨어·서버·AI 팀원과 주고받는 데이터 형식(인터페이스)을 먼저 맞추고 연동</li>
               </ul>
             </div>
+          </div>
+          <div class="proj__row"><h4>주요 성과</h4>
+            <ul>
+              <li>약 50개 팀 참가 → 예선 30팀 → 본선 15팀 통과</li>
+              <li>최종 <span class="hl">장려상</span> 수상 (은상과 1팀 차) · 현업 개발자·성인 참가자가 많은 대회</li>
+              <li>가장 걱정했던 <span class="hl">펌웨어–서버–앱 전체 연동</span>을 완성해 실시연까지 진행</li>
+              <li>프로젝트가 언론(전자신문)에 소개됨</li>
+            </ul>
           </div>
         </div>
       </article>
     </section>
   </section>
 
-  <!-- ==================== PAGE 3 : 피우다 (이어서) ==================== -->
+  <!-- ==================== PAGE 3 : 피우다 (문제 해결) ==================== -->
   <section class="sheet">
     <section class="sec">
       <article class="proj">
         <div class="proj__body">
-          <div class="proj__row"><h4>주요 성과</h4>
-            <ul>
-              <li>약 50개 팀 참가 → 예선 30 → 15팀 통과, 본선 진출</li>
-              <li>최종 장려상 수상 (은상과 1팀 차)</li>
-              <li><span class="hl">펌웨어–서버–앱 전체 연동</span>을 완성해 실시연까지 진행</li>
-            </ul>
-          </div>
           <div class="proj__row"><h4>문제 해결</h4>
             <div class="ts">
               <p class="ts__title">앱–펌웨어 연동이 반복적으로 끊기는 문제</p>
@@ -377,6 +389,7 @@
           <div class="proj__row"><h4>주요 성과</h4>
             <ul>
               <li>전국 WRO : Future Engineering <span class="hl">금상(종합 2등)</span> · 충청북도교육감상 수상</li>
+              <li>금상 수상으로 <span class="hl">WRO 세계대회(International Final) 진출 기회 획득</span></li>
               <li>사전 정보 없는 트랙에서 <span class="hl">완전 자율주행 3바퀴 + 평행주차</span> 완주</li>
               <li>빨강·초록 2색 표지판을 <span class="hl">HSV 색공간 기반</span>으로 실시간 판별해 좌우 회피</li>
             </ul>
@@ -391,7 +404,7 @@
             <div class="role-group">
               <span class="role-group__h">비전 · 주행 로직 (Raspberry Pi · OpenCV)</span>
               <ul>
-                <li>HSV 색공간 기반으로 색상 블록을 인식하고 <span class="hl">회피 방향을 결정하는 주행 로직</span> 구성·튜닝</li>
+                <li>HSV(색상·채도·명도) 색공간에서 색상 블록을 인식하고 <span class="hl">회피 방향을 결정하는 주행 로직</span> 구성·튜닝 (빨강 → 우측, 초록 → 좌측)</li>
                 <li>트랙 벽을 인식해 중앙을 유지하며 주행하도록 조향·속도 제어 로직 구성</li>
                 <li>초음파 센서 기반 트리거 동작 구현 (특정 거리 조건에서 반응)</li>
               </ul>
@@ -417,21 +430,21 @@
         <div class="proj__body">
           <div class="proj__row"><h4>문제 해결</h4>
             <div class="ts">
-              <p class="ts__title">환경이 바뀌면 같은 색이 다르게 인식되는 문제</p>
+              <p class="ts__title">녹색 표지판이 조명에 따라 감지되지 않는 문제</p>
               <p class="ts__label">문제 배경</p>
-              <p>조명·바닥 색이 달라지면 같은 표지판 블록도 다른 색 값으로 잡혀, 경기장이 바뀔 때마다 인식이 흔들렸습니다.</p>
+              <p>HSV 색공간에서 빨강은 잘 잡혔지만, 녹색은 색상(Hue) 범위가 넓고 조명이 약하면 채도·명도까지 함께 떨어져 간헐적으로 미검출됐습니다.</p>
               <p class="ts__label">해결 방법</p>
-              <p>노출·채도를 환경마다 다시 맞추는 <span class="hl">재보정 절차를 정립</span>해, 어떤 경기장에서도 빠르게 색 기준을 맞추고 대응할 수 있게 했습니다.</p>
+              <p>녹색 전용으로 <span class="hl">Hue 범위와 채도·명도 하한을 따로 조정</span>하고 보조 조명으로 표지판의 채도를 확보했습니다. 나아가 경기장이 바뀔 때마다 색 기준을 다시 맞추는 <span class="hl">재보정 절차를 정립</span>해 조명이 달라져도 녹색을 안정적으로 검출하도록 했습니다.</p>
             </div>
             <div class="ts">
               <p class="ts__title">좌우 회피 동작이 불균형한 문제</p>
               <p class="ts__label">문제 배경</p>
-              <p>바닥 마찰이 큰 환경에서 한쪽(우회전) 회피가 둔하게 동작해, 같은 명령에도 좌우 거동이 달랐습니다.</p>
+              <p>바닥 마찰이 큰 환경에서 한쪽(우회전) 회피가 둔하게 동작해 같은 명령에도 좌우 거동이 달랐습니다.</p>
               <p class="ts__label">해결 방법</p>
               <p>방향별 모터 속도 값을 나눠 세밀하게 조정해 좌우 회피 거동의 균형을 맞췄습니다.</p>
             </div>
           </div>
-          <div class="proj__row"><h4>회고</h4><p>비전 시스템이 조명·바닥 같은 환경 변화에 얼마나 민감한지, 그리고 그 변화를 <span class="hl">"다시 맞출 수 있도록 절차화"</span>하는 것이 실전에서 얼마나 중요한지를 배웠습니다. 좋은 알고리즘만큼이나 현장에서 재현 가능한 운용 절차가 중요하다는 걸 체감한 프로젝트였습니다.</p></div>
+          <div class="proj__row"><h4>회고</h4><p>기술적으로는 비전 시스템이 조명·바닥 같은 환경 변화에 민감하다는 점과 그 변화를 재현 가능한 절차로 다루는 것의 중요성을 배웠습니다. 다만 더 크게 남은 것은 준비 과정에 대한 반성입니다. 초반에 방향을 잘못 잡아 시간을 많이 돌아갔고 마감 직전 집중에 의존하던 방식의 한계를 실감했습니다. 대회 전날까지 기본 미션 달성을 확신하지 못했지만 팀원과 끝까지 문제 해결에 매달려 금상까지 이어 갔고, 이 경험으로 <span class="hl">초기에 방향을 충분히 검증하고 문제를 빠르게 발견해 꾸준히 완성도를 높여가는 과정</span>의 중요성을 체감했습니다. 결과뿐 아니라 준비 과정에서도 스스로 만족할 수 있는 개발자가 되고 싶습니다.</p></div>
         </div>
       </article>
     </section>
