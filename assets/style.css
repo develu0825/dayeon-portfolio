@@ -247,6 +247,7 @@ img { display: block; max-width: 100%; }
   .proj__head, .proj__shots, .role-group, .ts, .proj__row { break-inside: avoid; }
   .sec__title { break-after: avoid; }
   .proj__head { break-after: avoid; }
+  .proj__row h4 { break-after: avoid; }
   a { color: var(--ink); }
   .todo { display: none; }
   /* print-only vertical tightening to fit each sheet onto one A4 */
