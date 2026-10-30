@@ -259,5 +259,5 @@ img { display: block; max-width: 100%; }
   .proj__row { margin-bottom: 12px; }
   .proj__row li { margin-bottom: 4px; }
   .gallery { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .mini-grid { gap: 10px; }
+  .mini-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
 }
