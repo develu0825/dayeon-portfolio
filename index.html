@@ -282,7 +282,7 @@
               <span class="role-group__h">카메라 입력 · 프레임 처리 (V4L2 · OpenCV)</span>
               <ul>
                 <li>V4L2로 USB 카메라 MJPG 1280×720 30fps 확보, 고정노출(≈1/1000s)로 주행 중 모션블러 억제</li>
-                <li>camera.py: 캡처 전용 스레드 + 바운드 큐(생산자–소비자) 구조로 추론 부하가 캡처를 막지 않게 설계, 프레임 드롭 카운터로 드롭 0% 측정</li>
+                <li>camera.py: 캡처 전용 스레드 + 바운드 큐(생산자–소비자) 구조로 추론 부하가 캡처를 막지 않게 설계, <span class="hl">카메라 단독 캡처 테스트에서 프레임 드롭 0%</span> 측정</li>
                 <li>best_frame.py: Laplacian variance로 전주당 가장 선명한 한 장을 선택</li>
               </ul>
             </div>
@@ -290,7 +290,7 @@
               <span class="role-group__h">엣지 통합 · 서버 연동</span>
               <ul>
                 <li>metrics.py(온도·전력·fps 실측) · gps.py(u-blox NMEA 파싱) · pipeline.py(카메라+지표+GPS+전송 오케스트레이션) 구현</li>
-                <li>telemetry_client.py: WebSocket 실시간 전송 + 자동 재연결·오프라인 버퍼로 유실 없는 전송</li>
+                <li>telemetry_client.py: WebSocket 실시간 전송, 자동 재연결과 오프라인 버퍼(상한 내)로 일시적 단절 구간을 보관했다가 복구 시 재전송</li>
                 <li>FastAPI + SQLite 서버 구축, 프론트 계약에 맞춰 전 엔드포인트 e2e 검증 및 계약 회귀 테스트 작성</li>
               </ul>
             </div>
@@ -318,7 +318,7 @@
               <p class="ts__label">문제 배경</p>
               <p>이동하며 촬영하다 보니 네트워크가 자주 끊겼고, 그때마다 전송 중이던 판정 결과·기기 상태가 유실될 수 있었습니다.</p>
               <p class="ts__label">해결 방법</p>
-              <p>자동 재연결과 오프라인 버퍼를 두어 연결이 끊겨도 데이터를 순서대로 보관했다가 복구되면 유실 없이 전송하도록 구현했습니다.</p>
+              <p>자동 재연결과 오프라인 버퍼(상한 내)를 두어 일시적 단절 구간의 데이터를 순서대로 보관했다가 복구되면 재전송하도록 구현했습니다.</p>
             </div>
           </div>
           <div class="proj__row"><h4>안정성 · 장애 복구 (실하드웨어 검증)</h4>
