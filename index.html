@@ -126,7 +126,6 @@
         <li><span class="tl__date">2026</span><div><b>교내 해커톤 · 최우수상 (2등)</b><p>우물집(wellHouse) IoT 침수 대비 서비스</p></div></li>
         <li><span class="tl__date">2026</span><div><b>글로벌 피우다 · 장려상 (4등)</b><p>충북과학기술혁신원장상 · CSI 낙상 감지</p></div></li>
         <li><span class="tl__date">2026</span><div><b>SW/AI 경진대회 (김포) · 장려상 (4등)</b></div></li>        <li><span class="tl__date">2026</span><div><b>빛가람 AI ICT 경진대회 · 장려상</b></div></li>
-        <li><span class="tl__date">진행중</span><div><b>로보틱스 챌린지</b></div></li>
       </ul>
     </section>
 
@@ -154,101 +153,10 @@
     </section>
   </section>
 
-  <!-- ==================== PAGE 3 : 피우다 ==================== -->
-  <section class="sheet">
-    <section class="sec">
-      <h2 class="sec__title">Projects</h2>
-
-      <article class="proj">
-        <div class="proj__head">
-          <p class="proj__badge">대회 프로젝트 · 팀</p>
-          <h3 class="proj__title">wify</h3>
-          <p class="proj__award">글로벌 피우다 장려상 · 충북과학기술혁신원장상 (4등)</p>
-          <ul class="pills pills--sm"><li>Android</li><li>ESP32</li><li>ESP-IDF</li><li>WiFi CSI</li><li>MQTT</li></ul>
-          <div class="proj__btns">
-            <a class="btn-link" href="https://www.etnews.com/20260820000407" target="_blank" rel="noopener">언론 보도</a>
-            <a class="btn-link btn-link--fill" href="https://github.com/Wave-based-Intelligent-Fall-Identifier" target="_blank" rel="noopener"><img class="ico" src="https://cdn.simpleicons.org/github/ffffff" alt="" />GitHub</a>
-          </div>
-        </div>
-        <div class="proj__shots">
-          <span class="shot shot--blur" style="--bg: url('gallary/wify.jpg'); height:140px"><img src="gallary/wify.jpg" alt="wify 센싱 보드" style="object-fit: contain; object-position: 50% 100%;" /></span>
-          <span class="shot" style="height:140px"><img src="gallary/피우다_기기설치.png" alt="wify 기기 설치" /></span>
-        </div>
-        <p class="demo-link"><a href="https://www.youtube.com/watch?v=b4oFeqqJiIM" target="_blank" rel="noopener">▶ 시연영상 보러가기</a></p>
-        <div class="proj__body">
-          <div class="proj__row"><h4>개요</h4><p>카메라 없이 Wi-Fi 신호의 미세한 변화(CSI)를 분석해 실내 낙상을 감지하는 시스템입니다. 사생활 침해 없이 고령자의 낙상을 감지하는 것을 목표로, ESP32로 수집한 신호를 딥러닝 모델로 판별하고 결과를 Android 앱으로 전달해 보호자가 즉시 확인할 수 있도록 구현했습니다.</p></div>
-          <div class="proj__row"><h4>주요 기능</h4>
-            <ul>
-              <li>카메라 없이 Wi-Fi CSI로 실내 낙상을 실시간 감지</li>
-              <li>낙상 감지 시 보호자 앱으로 즉시 알림 전송</li>
-              <li>ESP32 → 서버 → 앱으로 이어지는 실시간 데이터 연동</li>
-            </ul>
-          </div>
-          <div class="proj__row"><h4>기간 · 인원</h4>
-            <ul>
-              <li>2026.03 ~ 2026.08</li>
-              <li>이다연 (APP·EM) · 염세현 (BE·EM) · 이지우 (AI)</li>
-            </ul>
-          </div>
-          <div class="proj__row"><h4>맡은 역할</h4>
-            <div class="role-group">
-              <span class="role-group__h">ESP32 STA 펌웨어 개발 (C · ESP-IDF)</span>
-              <ul>
-                <li>Wi-Fi STA 모드로 공유기에 접속해 ESP32에서 <span class="hl">CSI(64개 서브캐리어)를 실시간 수집</span></li>
-                <li>수집한 CSI 원신호를 <span class="hl">UDP로 서버에 전송</span>, 자동 재연결로 끊김 없이 스트리밍 · Doxygen 주석으로 함수 단위 문서화</li>
-              </ul>
-            </div>
-            <div class="role-group">
-              <span class="role-group__h">Android 앱 개발</span>
-              <ul>
-                <li>실시간 낙상 감지 결과·보호자 알림 화면, 기기 등록·선택·상태 확인 화면 구현</li>
-                <li>서버(MQTT)로 수신한 위험 상태를 앱 UI에 실시간 반영</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-  </section>
-
-  <!-- ==================== PAGE 3 : 피우다 (이어서) ==================== -->
-  <section class="sheet">
-    <section class="sec">
-      <article class="proj">
-        <div class="proj__body">
-          <div class="proj__row"><h4>주요 성과</h4>
-            <ul>
-              <li>약 50개 팀 참가 → 예선 30팀 → 본선 15팀 통과</li>
-              <li>최종 <span class="hl">장려상</span> 수상 (은상과 1팀 차) · 현업 개발자·성인 참가자가 많은 대회</li>
-              <li>가장 걱정했던 <span class="hl">펌웨어–서버–앱 전체 연동</span>을 완성해 실시연까지 진행</li>
-              <li>프로젝트가 언론(전자신문)에 소개됨</li>
-            </ul>
-          </div>
-          <div class="proj__row"><h4>문제 해결</h4>
-            <div class="ts">
-              <p class="ts__title">앱–펌웨어 연동이 반복적으로 끊기는 문제</p>
-              <p class="ts__label">문제 배경</p>
-              <p>개발 중 휴대폰 핫스팟 환경에서 앱과 펌웨어를 연동해 테스트했는데, 통신이 주기적으로 끊겨 데이터 수신이 불안정했습니다.</p>
-              <p class="ts__label">해결 방법</p>
-              <p>원인이 핫스팟이 UDP 트래픽을 주기적으로 차단하는 데 있음을 확인하고 별도 공유기 환경으로 전환해 안정적인 통신을 확보했습니다.</p>
-            </div>
-            <div class="ts">
-              <p class="ts__title">통신 기능을 STA 모드에 둘지 AP 모드에 둘지</p>
-              <p class="ts__label">문제 배경</p>
-              <p>앱 연결과 서버 전송 기능을 STA 모드에서 처리할지 AP 모드에서 처리할지 결정해야 했고, 두 방식은 연결 안정성·초기 설정·서버 접근성에서 장단점이 달랐습니다.</p>
-              <p class="ts__label">해결 방법</p>
-              <p>서버 전송과 안정적인 연결이 핵심 요구사항이라 판단해 기존 네트워크에 접속하는 STA 모드로 통신 구조를 구성했습니다. 기술보다 요구사항을 먼저 정의하고 방식을 고른 과정이었습니다.</p>
-            </div>
-          </div>
-          <div class="proj__row"><h4>회고</h4><p>ESP32 펌웨어를 직접 구조부터 작성하며 CSI 원신호를 끊김 없이 수집·전송하는 통신 로직을 다뤘고, 통신을 STA/AP 중 어디에 둘지 고민하며 '기술을 먼저 정하기보다 요구사항을 먼저 정의해야 한다'는 것을 배웠습니다. 헤더/소스 분리와 함수 단위 주석으로 협업자가 읽을 수 있는 펌웨어를 처음 의식했고, 가장 걱정했던 펌웨어–서버–앱 전체 연동을 완성해 실제 서비스처럼 동작시킨 경험이었습니다.</p></div>
-        </div>
-      </article>
-    </section>
-  </section>
-
   <!-- ==================== PAGE : HailMary ==================== -->
   <section class="sheet">
     <section class="sec">
+      <h2 class="sec__title">Projects</h2>
       <article class="proj">
         <div class="proj__head">
           <p class="proj__badge">팀 프로젝트</p>
@@ -341,6 +249,97 @@
     </section>
   </section>
 
+  <!-- ==================== PAGE 3 : 피우다 ==================== -->
+  <section class="sheet">
+    <section class="sec">
+
+      <article class="proj">
+        <div class="proj__head">
+          <p class="proj__badge">대회 프로젝트 · 팀</p>
+          <h3 class="proj__title">wify</h3>
+          <p class="proj__award">글로벌 피우다 장려상 · 충북과학기술혁신원장상 (4등)</p>
+          <ul class="pills pills--sm"><li>Android</li><li>ESP32</li><li>ESP-IDF</li><li>WiFi CSI</li><li>MQTT</li></ul>
+          <div class="proj__btns">
+            <a class="btn-link" href="https://www.etnews.com/20260820000407" target="_blank" rel="noopener">언론 보도</a>
+            <a class="btn-link btn-link--fill" href="https://github.com/Wave-based-Intelligent-Fall-Identifier" target="_blank" rel="noopener"><img class="ico" src="https://cdn.simpleicons.org/github/ffffff" alt="" />GitHub</a>
+          </div>
+        </div>
+        <div class="proj__shots">
+          <span class="shot shot--blur" style="--bg: url('gallary/wify.jpg'); height:190px"><img src="gallary/wify.jpg" alt="wify 센싱 보드" style="object-fit: contain; object-position: 50% 100%;" /></span>
+          <span class="shot" style="height:190px"><img src="gallary/피우다_기기설치.png" alt="wify 기기 설치" /></span>
+        </div>
+        <p class="demo-link"><a href="https://www.youtube.com/watch?v=b4oFeqqJiIM" target="_blank" rel="noopener">▶ 시연영상 보러가기</a></p>
+        <div class="proj__body">
+          <div class="proj__row"><h4>개요</h4><p>카메라 없이 Wi-Fi 신호의 미세한 변화(CSI)를 분석해 실내 낙상을 감지하는 시스템입니다. 사생활 침해 없이 고령자의 낙상을 감지하는 것을 목표로, ESP32로 수집한 신호를 딥러닝 모델로 판별하고 결과를 Android 앱으로 전달해 보호자가 즉시 확인할 수 있도록 구현했습니다.</p></div>
+          <div class="proj__row"><h4>주요 기능</h4>
+            <ul>
+              <li>카메라 없이 Wi-Fi CSI로 실내 낙상을 실시간 감지</li>
+              <li>낙상 감지 시 보호자 앱으로 즉시 알림 전송</li>
+              <li>ESP32 → 서버 → 앱으로 이어지는 실시간 데이터 연동</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>기간 · 인원</h4>
+            <ul>
+              <li>2026.03 ~ 2026.08</li>
+              <li>이다연 (APP·EM) · 염세현 (BE·EM) · 이지우 (AI)</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>맡은 역할</h4>
+            <div class="role-group">
+              <span class="role-group__h">ESP32 STA 펌웨어 개발 (C · ESP-IDF)</span>
+              <ul>
+                <li>Wi-Fi STA 모드로 공유기에 접속해 ESP32에서 <span class="hl">CSI(64개 서브캐리어)를 실시간 수집</span></li>
+                <li>수집한 CSI 원신호를 <span class="hl">UDP로 서버에 전송</span>, 자동 재연결로 끊김 없이 스트리밍 · Doxygen 주석으로 함수 단위 문서화</li>
+              </ul>
+            </div>
+            <div class="role-group">
+              <span class="role-group__h">Android 앱 개발</span>
+              <ul>
+                <li>실시간 낙상 감지 결과·보호자 알림 화면, 기기 등록·선택·상태 확인 화면 구현</li>
+                <li>서버(MQTT)로 수신한 위험 상태를 앱 UI에 실시간 반영</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </section>
+
+  <!-- ==================== PAGE 3 : 피우다 (이어서) ==================== -->
+  <section class="sheet">
+    <section class="sec">
+      <article class="proj">
+        <div class="proj__body">
+          <div class="proj__row"><h4>주요 성과</h4>
+            <ul>
+              <li>약 50개 팀 참가 → 예선 30팀 → 본선 15팀 통과</li>
+              <li>최종 <span class="hl">장려상</span> 수상 (은상과 1팀 차) · 현업 개발자·성인 참가자가 많은 대회</li>
+              <li>가장 걱정했던 <span class="hl">펌웨어–서버–앱 전체 연동</span>을 완성해 실시연까지 진행</li>
+              <li>프로젝트가 언론(전자신문)에 소개됨</li>
+            </ul>
+          </div>
+          <div class="proj__row"><h4>문제 해결</h4>
+            <div class="ts">
+              <p class="ts__title">앱–펌웨어 연동이 반복적으로 끊기는 문제</p>
+              <p class="ts__label">문제 배경</p>
+              <p>개발 중 휴대폰 핫스팟 환경에서 앱과 펌웨어를 연동해 테스트했는데, 통신이 주기적으로 끊겨 데이터 수신이 불안정했습니다.</p>
+              <p class="ts__label">해결 방법</p>
+              <p>원인이 핫스팟이 UDP 트래픽을 주기적으로 차단하는 데 있음을 확인하고 별도 공유기 환경으로 전환해 안정적인 통신을 확보했습니다.</p>
+            </div>
+            <div class="ts">
+              <p class="ts__title">통신 기능을 STA 모드에 둘지 AP 모드에 둘지</p>
+              <p class="ts__label">문제 배경</p>
+              <p>앱 연결과 서버 전송 기능을 STA 모드에서 처리할지 AP 모드에서 처리할지 결정해야 했고, 두 방식은 연결 안정성·초기 설정·서버 접근성에서 장단점이 달랐습니다.</p>
+              <p class="ts__label">해결 방법</p>
+              <p>서버 전송과 안정적인 연결이 핵심 요구사항이라 판단해 기존 네트워크에 접속하는 STA 모드로 통신 구조를 구성했습니다. 기술보다 요구사항을 먼저 정의하고 방식을 고른 과정이었습니다.</p>
+            </div>
+          </div>
+          <div class="proj__row"><h4>회고</h4><p>ESP32 펌웨어를 직접 구조부터 작성하며 CSI 원신호를 끊김 없이 수집·전송하는 통신 로직을 다뤘고, 통신을 STA/AP 중 어디에 둘지 고민하며 '기술을 먼저 정하기보다 요구사항을 먼저 정의해야 한다'는 것을 배웠습니다. 헤더/소스 분리와 함수 단위 주석으로 협업자가 읽을 수 있는 펌웨어를 처음 의식했고, 가장 걱정했던 펌웨어–서버–앱 전체 연동을 완성해 실제 서비스처럼 동작시킨 경험이었습니다.</p></div>
+        </div>
+      </article>
+    </section>
+  </section>
+
   <!-- ==================== PAGE : WRO ==================== -->
   <section class="sheet">
     <section class="sec">
@@ -356,8 +355,8 @@
           </div>
         </div>
         <div class="proj__shots">
-          <span class="shot" style="height:140px"><img src="gallary/wro_활동사진3.jpg" alt="WRO 자율주행 로봇 주행" style="object-position: 50% 65%;" /></span>
-          <span class="shot" style="height:140px"><img src="gallary/WRO_준비사진.jpg" alt="WRO 대회 준비·하드웨어" style="object-position: 50% 80%;" /></span>
+          <span class="shot" style="height:190px"><img src="gallary/wro_활동사진3.jpg" alt="WRO 자율주행 로봇 주행" style="object-position: 50% 65%;" /></span>
+          <span class="shot" style="height:190px"><img src="gallary/WRO_준비사진.jpg" alt="WRO 대회 준비·하드웨어" style="object-position: 50% 80%;" /></span>
         </div>
         <div class="proj__body">
           <div class="proj__row"><h4>개요</h4><p>사전 정보가 주어지지 않은 트랙을 카메라로 인식하며 <span class="hl">완전 자율로 3바퀴 주행</span>하고, 무작위로 놓인 <span class="hl">빨강·초록 2색 표지판</span>을 실시간 판단해 좌우로 회피한 뒤 지정 구역에 평행주차까지 수행하는 대회입니다. 저는 <span class="hl">하드웨어 제작부터 주행 소프트웨어 튜닝까지 전 과정</span>에 참여했습니다.</p></div>
