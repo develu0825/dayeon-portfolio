@@ -258,15 +258,15 @@
           <p class="proj__badge">대회 프로젝트 · 팀</p>
           <h3 class="proj__title">wify</h3>
           <p class="proj__award">글로벌 피우다 장려상 · 충북과학기술혁신원장상 (4등)</p>
-          <ul class="pills pills--sm"><li>Android</li><li>ESP32</li><li>ESP-IDF</li><li>WiFi CSI</li><li>MQTT</li></ul>
+          <ul class="pills pills--sm"><li>Android</li><li>ESP32</li><li>ESP-IDF</li><li>WiFi CSI</li><li>ESP-NOW</li><li>MQTT</li></ul>
           <div class="proj__btns">
             <a class="btn-link" href="https://www.etnews.com/20260820000407" target="_blank" rel="noopener">언론 보도</a>
             <a class="btn-link btn-link--fill" href="https://github.com/Wave-based-Intelligent-Fall-Identifier" target="_blank" rel="noopener"><img class="ico" src="https://cdn.simpleicons.org/github/ffffff" alt="" />GitHub</a>
           </div>
         </div>
         <div class="proj__shots">
-          <span class="shot shot--blur" style="--bg: url('gallary/wify.jpg'); height:190px"><img src="gallary/wify.jpg" alt="wify 센싱 보드" style="object-fit: contain; object-position: 50% 100%;" /></span>
-          <span class="shot" style="height:190px"><img src="gallary/피우다_기기설치.png" alt="wify 기기 설치" /></span>
+          <span class="shot shot--blur" style="--bg: url('gallary/wify.jpg'); height:150px"><img src="gallary/wify.jpg" alt="wify 센싱 보드" style="object-fit: contain; object-position: 50% 100%;" /></span>
+          <span class="shot" style="height:150px"><img src="gallary/피우다_기기설치.png" alt="wify 기기 설치" /></span>
         </div>
         <p class="demo-link"><a href="https://www.youtube.com/watch?v=b4oFeqqJiIM" target="_blank" rel="noopener">▶ 시연영상 보러가기</a></p>
         <div class="proj__body">
@@ -274,42 +274,39 @@
           <div class="proj__row"><h4>주요 기능</h4>
             <ul>
               <li>카메라 없이 Wi-Fi CSI로 실내 낙상을 실시간 감지</li>
-              <li>낙상 감지 시 보호자 앱으로 즉시 알림 전송</li>
-              <li>ESP32 → 서버 → 앱으로 이어지는 실시간 데이터 연동</li>
+              <li>낙상 감지 시 보호자 앱으로 즉시 알림 · 119 긴급 신고 전화</li>
+              <li>송신기–수신기(ESP-NOW)·서버(MQTT)·앱으로 이어지는 실시간 데이터 연동</li>
             </ul>
           </div>
           <div class="proj__row"><h4>기간 · 인원</h4>
             <ul>
               <li>2026.03 ~ 2026.08</li>
-              <li>이다연 (APP·EM) · 염세현 (BE·EM) · 이지우 (AI)</li>
+              <li>이다연 (수신기 펌웨어·Android 앱·온디바이스 ML 이식) · 염세현 (송신기 펌웨어·서버) · 이지우 (AI 모델 학습)</li>
             </ul>
           </div>
-          <div class="proj__row"><h4>맡은 역할</h4>
+          <div class="proj__row" style="break-inside:auto"><h4>맡은 역할</h4>
             <div class="role-group">
-              <span class="role-group__h">ESP32 STA 펌웨어 개발 (C · ESP-IDF)</span>
+              <span class="role-group__h">ESP32 수신기 펌웨어 (주 저자 · C · ESP-IDF)</span>
               <ul>
-                <li>Wi-Fi STA 모드로 공유기에 접속해 ESP32에서 <span class="hl">CSI(64개 서브캐리어)를 실시간 수집</span></li>
-                <li>수집한 CSI 원신호를 <span class="hl">UDP로 서버에 전송</span>, 자동 재연결로 끊김 없이 스트리밍 · Doxygen 주석으로 함수 단위 문서화</li>
+                <li>CSI 전처리 파이프라인 직접 구현: <span class="hl">기준선(baseline) 차감 전처리</span>, 링버퍼, 서브캐리어 라벨 출력, 빈 프레임 드롭, 송신기 MAC 필터</li>
+                <li>수신기 Wi-Fi 역할을 <span class="hl">STA → AP → APSTA+NAPT 게이트웨이</span>로 전환 주도 · CSI 캡처가 promiscuous 기반이라 모드와 무관하게 동작하는 점을 활용해 네트워킹 계층만 교체(한 기기가 CSI 수신과 상위망 라우팅 겸함)</li>
+                <li>ESP-NOW 페어링(브로드캐스트 → MAC 고정)·재시도 제한·에러 처리, 기기 간 ESP-NOW·서버 MQTT 연동</li>
               </ul>
             </div>
             <div class="role-group">
-              <span class="role-group__h">Android 앱 개발</span>
+              <span class="role-group__h">온디바이스 ML 이식</span>
               <ul>
-                <li>실시간 낙상 감지 결과·보호자 알림 화면, 기기 등록·선택·상태 확인 화면 구현</li>
-                <li>서버(MQTT)로 수신한 위험 상태를 앱 UI에 실시간 반영</li>
+                <li>이지우가 학습한 <span class="hl">GRU 낙상 모델을 C 추론으로 펌웨어에 이식</span> · 보드 없이 호스트 검증 코드로 추론 결과 확인</li>
+              </ul>
+            </div>
+            <div class="role-group">
+              <span class="role-group__h">Android 앱 (단독 저자)</span>
+              <ul>
+                <li>실시간 낙상 알림·기기 등록/상태 화면, MQTT로 위험 상태 실시간 반영</li>
+                <li>삼성/Android 12+ <span class="hl">포그라운드 서비스 크래시·ANR 수정</span>, 낙상 시 119 긴급 신고 전화, 관리자 앱(MQTT 토픽 모니터·커맨드) 단독 구축</li>
               </ul>
             </div>
           </div>
-        </div>
-      </article>
-    </section>
-  </section>
-
-  <!-- ==================== PAGE 3 : 피우다 (이어서) ==================== -->
-  <section class="sheet">
-    <section class="sec">
-      <article class="proj">
-        <div class="proj__body">
           <div class="proj__row"><h4>주요 성과</h4>
             <ul>
               <li>약 50개 팀 참가 → 예선 30팀 → 본선 15팀 통과</li>
@@ -320,21 +317,21 @@
           </div>
           <div class="proj__row"><h4>문제 해결</h4>
             <div class="ts">
-              <p class="ts__title">앱–펌웨어 연동이 반복적으로 끊기는 문제</p>
+              <p class="ts__title">CSI를 받으면서 상위망으로도 보내야 하는데, Wi-Fi 모드를 어디에 둘지</p>
               <p class="ts__label">문제 배경</p>
-              <p>개발 중 휴대폰 핫스팟 환경에서 앱과 펌웨어를 연동해 테스트했는데, 통신이 주기적으로 끊겨 데이터 수신이 불안정했습니다.</p>
+              <p>수신기가 CSI를 캡처하려면 Wi-Fi 설정이 필요한데, 동시에 서버로 데이터를 보내려면 네트워크 연결도 필요했습니다. 수신기를 STA로 둘지 AP로 둘지 결정해야 했습니다.</p>
               <p class="ts__label">해결 방법</p>
-              <p>원인이 핫스팟이 UDP 트래픽을 주기적으로 차단하는 데 있음을 확인하고 별도 공유기 환경으로 전환해 안정적인 통신을 확보했습니다.</p>
+              <p>CSI 캡처가 promiscuous 모드 기반이라 Wi-Fi 모드와 무관하게 동작한다는 점을 확인하고, 네트워킹 계층만 바꿔가며 STA → AP → 최종 APSTA+NAPT 게이트웨이로 발전시켰습니다. 한 기기가 CSI를 받으면서 상위망 라우팅까지 겸하게 했습니다.</p>
             </div>
             <div class="ts">
-              <p class="ts__title">통신 기능을 STA 모드에 둘지 AP 모드에 둘지</p>
+              <p class="ts__title">빌드는 되는데 부팅 직후 바로 죽는 문제</p>
               <p class="ts__label">문제 배경</p>
-              <p>앱 연결과 서버 전송 기능을 STA 모드에서 처리할지 AP 모드에서 처리할지 결정해야 했고, 두 방식은 연결 안정성·초기 설정·서버 접근성에서 장단점이 달랐습니다.</p>
+              <p>컴포넌트를 정리하는 과정에서 초기화 함수(wifiInit)가 여러 곳에 정의돼 링크가 충돌했고, CSI 관련 Kconfig가 설정되지 않으면 부팅 직후 abort가 발생했습니다.</p>
               <p class="ts__label">해결 방법</p>
-              <p>서버 전송과 안정적인 연결이 핵심 요구사항이라 판단해 기존 네트워크에 접속하는 STA 모드로 통신 구조를 구성했습니다. 기술보다 요구사항을 먼저 정의하고 방식을 고른 과정이었습니다.</p>
+              <p>초기화 함수의 소유권을 한 곳으로 정리해 다중정의를 없애고, CMake 컴포넌트 구성과 Kconfig를 바로잡아 부팅 abort를 해결했습니다. 빌드·부팅 로그를 따라가며 원인을 좁혔습니다.</p>
             </div>
           </div>
-          <div class="proj__row"><h4>회고</h4><p>ESP32 펌웨어를 직접 구조부터 작성하며 CSI 원신호를 끊김 없이 수집·전송하는 통신 로직을 다뤘고, 통신을 STA/AP 중 어디에 둘지 고민하며 '기술을 먼저 정하기보다 요구사항을 먼저 정의해야 한다'는 것을 배웠습니다. 헤더/소스 분리와 함수 단위 주석으로 협업자가 읽을 수 있는 펌웨어를 처음 의식했고, 가장 걱정했던 펌웨어–서버–앱 전체 연동을 완성해 실제 서비스처럼 동작시킨 경험이었습니다.</p></div>
+          <div class="proj__row"><h4>회고</h4><p>ESP32 수신기 펌웨어를 맡아 CSI 원신호를 그대로 쓰지 않고 기준선 차감 같은 전처리부터 직접 구현했고, Wi-Fi 역할을 STA에서 AP, 최종 APSTA+NAPT 게이트웨이로 바꿔가며 '모드가 아니라 네트워킹 계층만 교체하면 된다'는 것을 배웠습니다. 학습된 GRU 모델을 임베디드에서 돌아가게 C 추론으로 이식하며 온디바이스 ML도 경험했습니다. 다만 이식·마이그레이션 작업은 <span class="hl">빌드·호스트 검증까지</span>였고 실보드 상시 구동은 추가 검증이 필요하다는 점, 전체 시스템은 대회 실시연으로 동작을 확인했다는 점을 구분해 기록해두었습니다. 링크 충돌·부팅 abort를 로그로 좁혀 해결하며 '돌아가게 만드는 것'만큼 '왜 안 도는지 읽어내는 것'이 중요하다는 걸 느꼈습니다.</p></div>
         </div>
       </article>
     </section>
